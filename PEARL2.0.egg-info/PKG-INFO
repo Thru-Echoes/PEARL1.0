@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: PEARL2.0
+Version: 0.0.1
+Summary: PEARL x EWAIM: an extensible web app for interactive mapping
+Home-page: http://github.com/Thru-Echoes/PEARL2.0
+Author: Oliver Muellerklein
+Author-email: omuellerklein@berkeley.edu
+License: BSD
+Description: PEARL x EWAIM: an extensible web app for interactive mapping
+Platform: any
+Classifier: Development Status :: 1 - Unstable
+Classifier: Intended Audience :: PEARLers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
