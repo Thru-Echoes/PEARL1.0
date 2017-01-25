@@ -1,4 +1,4 @@
-<img src="https://travis-ci.org/Thru-Echoes/ewaim-webapp.svg?branch=master">
+<img src="https://travis-ci.org/Thru-Echoes/PEARL2.0.svg?branch=master">
 
 # PEARL2.0
 
