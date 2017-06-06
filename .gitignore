@@ -1,6 +1,10 @@
 *.*~
 *.pyc
 __pycache__
+__pycache__/*
+__pycache__/
+*/__pycache__/
+*/*/__pycache__/
 .ipynb_checkpoints
 *.o
 *.pyo
@@ -18,6 +22,4 @@ __pycache__
 /dist
 /docs
 .cache
-/static/py/__pycache__/
 /static/data/pearl-tif/pearl_data/
-/.DS_Store
