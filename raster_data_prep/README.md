@@ -4,9 +4,9 @@ This folder contains raster data preparation utilities function. Before doing an
 
 ## Requirements
 
-This utility function requires `gdal` and `R` with library `raster`. The reason why `R` is needed is because the raw data are `R rasters`. 
+This utility function requires `gdal` and `R` with library `raster`. The reason why `R` is needed is because the raw data are `R rasters`.
 
-To use these data, I need to use `R` to convert the data to `GeoTIFF` first, and then use `gdal` for further preparation. 
+To use these data, I need to use `R` to convert the data to `GeoTIFF` first, and then use `gdal` for further preparation.
 
 To install `gdal` for OSX:
 
@@ -14,10 +14,23 @@ To install `gdal` for OSX:
   brew install gdal
 ```
 
+Once it is done, install `gdal` python package using conda (recommended and easiest):
+
+```bash
+  conda install gdal
+```
+
+Then, install `rpy2` for `R` connection in `python`:
+
+```bash
+  pip install rpy2
+```
+
 To install `R`, go to this [link](https://www.r-project.org/). When `R` is installed, in R, type:
 
 ```R
   install.package('raster')
+  install.package('rgdal')
 ```
 
 ## Use
@@ -28,8 +41,8 @@ When you have all the dependencies installed, use:
   python raster_translation.py
 ```
 
-Once the script is finished, the tile maps are in `/pearl_data/tile_maps/`, you can put all the tile maps to the `../static/data/`. 
+Once the script is finished, the tile maps are in `/pearl_data/tile_maps/`, you can put all the tile maps to the `../static/data/`.
 
-# Please Note! 
+# Please Note!
 
-Although this script runs in parallel, the running time is still every long because of the tile map creation. In addition, since the `gdal` package might cause various problems, if you don't want to run it, it's OK, because all the data are already generated for the app. 
+Although this script runs in parallel, the running time is still every long because of the tile map creation. The `gdal` package might cause various problems.
