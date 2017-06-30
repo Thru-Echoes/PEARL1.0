@@ -14,6 +14,7 @@ __pycache__/
 *.pyc
 *.so
 .DS_Store
+.eggs/
 /MANIFEST
 /.coverage
 /coverage.xml
