@@ -8,6 +8,14 @@ This utility function requires `gdal` and `R` with library `raster`. The reason 
 
 To use these data, I need to use `R` to convert the data to `GeoTIFF` first, and then use `gdal` for further preparation.
 
+## To Do
+
+-[x] check out how colors work :
+	To change the colors with rgb values, change the color list into rgb values with space inbetween the triplets (ex. '230 34 145')
+ 
+-[] find different colors to use for the maps
+
+
 ## 1 Installation
 
 ### 1.1 OS X
