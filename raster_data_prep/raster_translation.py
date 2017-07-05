@@ -86,10 +86,7 @@ if not os.path.exists(tile_dir):
     os.makedirs(tile_dir)
 
 #reference http://www.rapidtables.com/web/color/RGB_Color.htm
-color = ['0 0 255','255 0 0','255 128 0','255 255 0',
-'128 255 0','0 255 0', '0 255 128','0 255 255','0 128 255','0 0 255','127 0 255',
-'255 0 255','255 0 127','128 128 128','255 153 153','153 204 255','204 153 255',
-'255 255 153']
+color = ['blue', 'red', 'yellow', 'green']
 
 for i in range(0, 4):
     color_file_create(color_dir, color[i], i+1)
