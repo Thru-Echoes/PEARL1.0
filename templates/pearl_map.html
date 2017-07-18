@@ -26,12 +26,6 @@
     <script src="./static/js/map-util.js"></script>
     <script type="text/javascript">
         $(window).load(function() {
-            var csv_data = {{ obj_meta|tojson }};
-            $(function() {
-                $("#csv-table").bootstrapTable({
-                    data: csv_data
-                });
-            });
 
             var model_data = {{ obj_sp|tojson }};
             var model_string = model_data[0]["Model"];
@@ -108,24 +102,6 @@
         ***************************************/
 
         /*var tile_current_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";*/
-
-        function doesFileExist(urlToFile) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('HEAD', urlToFile, false);
-            xhr.send();
-
-            if (xhr.status == "404") {
-                console.log("File doesn't exist");
-                return false;
-            } else {
-                console.log("File exists");
-                return true;
-            }
-        }
-
-        /*console.log("\n+++++++++++");
-        console.log("Does file exist : ", doesFileExist("/data/PEARL/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/3/3/4.png"));
-        console.log("+++++++++++\n");*/
 
         var tile_current_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";
         var tile_ac45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac45/{z}/{x}/{y}.png";
@@ -411,7 +387,7 @@
     </script>
 </div>
 <div id="push-pearl-postmap" style="height: 25px;"></div>
-<div class="container">
+<!--div class="container">
     <div class="row">
         <div class="col-md-12">
             <h1 style="text-align: center;">Current Species: <i>{{ obj_show['prop_name'] }}</i></h1>
@@ -432,6 +408,57 @@
                     </thead>
                 </table>
             </div>
+        </div>
+    </div>
+</div-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="text-align: center;">Current Species: <i>{{ obj_show['prop_name'] }}</i></h1>
+            <!--div class="container" style="padding: 10px; ">
+                <table id="csv-table" data-toggle="true" data-show-columns="true" data-pagination="true" data-height="500">
+                    <thead>
+                        <tr class="click-row" data-href="/">
+                            <th data-field="id" data-sortable="true">Species ID</th>
+                            <th data-field="science_name" data-sortable="true">Scientific Name</th>
+                            <th data-field="clade" data-sortable="true">Clade</th>
+                            <th data-field="iucn" data-sortable="true">IUCN</th>
+                            <th data-field="coverage" data-sortable="true">Data Collection Quality</th>
+                            <th data-field="uncertain" data-sortable="true">Model Quality</th>
+                            <th data-field="sources" data-sortable="true">Data Sources</th>
+                            <th data-field="tss" data-sortable="true">True Skill Statistic</th>
+                            <th data-field="roc" data-sortable="true">Area Under Curve</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div-->
+            <div class="row">
+                <div class="col-md-3">
+                    <div style="height: 100px;"></div>
+                    <h2 style="style: center;">
+                        True Skill Statistic
+                    </h2>
+                </div>
+                <div class="col-md-3">
+                    <div style="height: 100px;"></div>
+                    <h2 style="style: center;">
+                        Area Under Curve
+                    </h2>
+                </div>
+                <div class="col-md-3">
+                    <div style="height: 100px;"></div>
+                    <h2 style="style: center;">
+                        Data Quality
+                    </h2>
+                </div>
+                <div class="col-md-3">
+                    <div style="height: 100px;"></div>
+                    <h2 style="style: center;">
+                        Model Uncertainity
+                    </h2>
+                </div>
+            </div>
+            <div style="height: 500px;"></div>
         </div>
     </div>
 </div>

@@ -73,9 +73,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ABBREVIATA_BANCROFTI.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    #return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 elif req_raw == "option-abha":
                     init_zoom = 3
@@ -95,9 +96,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ABBREVIATA_HASTASPICULA.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 elif req_raw == "option-agag":
                     init_zoom = 3
@@ -117,9 +119,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/AGLENCHUS_AGRICOLA.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 elif req_raw == "option-alpr":
                     init_zoom = 3
@@ -139,9 +142,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ALAIMUS_PRIMITIVUS.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 elif req_raw == "option-alfi":
                     init_zoom = 3
@@ -161,9 +165,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ALLOCORRIGIA_FILIFORMIS.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 elif req_raw == "option-alco":
                     init_zoom = 3
@@ -183,9 +188,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ALLOGLOSSIDIUM_CORTI.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 elif req_raw == "option-ampe":
                     init_zoom = 3
@@ -205,9 +211,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/AMALARAEUS_PENICILLIGER.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 elif req_raw == "option-aslo":
                     init_zoom = 3
@@ -227,9 +234,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ASCOCOTYLE_LONGA.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 elif req_raw == "option-ctca":
                     init_zoom = 3
@@ -249,9 +257,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/CTENOCEPHALIDES_CANIS.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 elif req_raw == "option-zylu":
                     init_zoom = 3
@@ -271,9 +280,10 @@ def index():
                         "init_long" : init_long
                     }
                     ## Pull in PEARL metadata
-                    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
+                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
                     obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ZYGOCOTYLE_LUNATA.csv")
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
                 else:
                     flash("Something went wrong with finding that data...")
