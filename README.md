@@ -1,10 +1,25 @@
-<img src="https://travis-ci.org/Thru-Echoes/PEARL2.0.svg?branch=master">
+<img src="https://travis-ci.org/Thru-Echoes/PEARL1.0.svg?branch=master">
 
-# PEARL2.0
+# PEARL1.0
 
 Mapping global projections of current and future distributions of 450+ species of parasites.
 
-**PEARL2.0** makes use of *EWAIM*, a mapping framework developed by [Oliver Muellerklein](http://thru-echoes.github.io/) and [Zhongqi Miao](https://github.com/ranranking) of the [Wayne Getz lab](https://nature.berkeley.edu/getzlab/) at UC Berkeley for interactive web mapping. *EWAIM* is also used for interactive web mapping of big data / high traffic data systems - see our project on [visualizing movement of migratory birds in Israel](https://github.com/Thru-Echoes/BirdShader).
+**PEARL1.0** makes use of *EWAIM*, a mapping framework developed by [Oliver Muellerklein](http://thru-echoes.github.io/) and [Zhongqi Miao](https://github.com/ranranking) of the [Wayne Getz lab](https://nature.berkeley.edu/getzlab/) at UC Berkeley for interactive web mapping. *EWAIM* is also used for interactive web mapping of big data / high traffic data systems - see our project on [visualizing movement of migratory birds in Israel](https://github.com/Thru-Echoes/BirdShader).
+
+# Installation on Redhat Linux
+
+Need to install Python3 on Redhat.
+
+```bash
+    cd Python-3.X.X
+    mkdir ~/.localpython
+    ./configure --prefix=/home/omuellerklein/.localpython
+    make
+    make altinstall     ## or make install
+    /home/omuellerklein/.localpython/bin/python3
+    /home/omuellerklein/.localpython/bin/pip3 install --upgrade pip
+    /home/omuellerklein/.localpython/bin/pip3 install flask flask_bootstrap
+```
 
 ## 1. EWAIM: an Extensible Web App for Interactive Mapping
 
@@ -41,6 +56,6 @@ EWAIM (the webapp as well as the package) will be extended for direct research a
 
 For the sake of this project submission we provide pre-made CSVs and database (*database_prep/temperature.gz*) for the data instead. This is because installing packages / modules **GDAL** can likely cause system-based errors. Normally we will use proper database connections (as our utility functions show) for connections to the data for layers and analysis.
 
-**NOTE:** follow instructions in **database_prep** and **raster_data_prep**    
+**NOTE:** follow instructions in **database_prep** and **raster_data_prep**
 
 **NOTE:** must install all database dependencies as described in *database_prep/README.md* for the non-example version of this app!

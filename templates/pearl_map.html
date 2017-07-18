@@ -107,16 +107,66 @@
         * Set params for core map
         ***************************************/
 
-        var tile_current_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";
-        var tile_ac45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac45/{z}/{x}/{y}.png";
-        var tile_ac85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac85/{z}/{x}/{y}.png";
-        var tile_bc26_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc26/{z}/{x}/{y}.png";
+        /*var tile_current_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";*/
+
+        function doesFileExist(urlToFile) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD', urlToFile, false);
+            xhr.send();
+
+            if (xhr.status == "404") {
+                console.log("File doesn't exist");
+                return false;
+            } else {
+                console.log("File exists");
+                return true;
+            }
+        }
+
+        /*console.log("\n+++++++++++");
+        console.log("Does file exist : ", doesFileExist("/data/PEARL/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/3/3/4.png"));
+        console.log("+++++++++++\n");*/
+
+        var tile_current_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";
+        var tile_ac45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac45/{z}/{x}/{y}.png";
+        var tile_ac85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac85/{z}/{x}/{y}.png";
+        var tile_bc26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc26/{z}/{x}/{y}.png";
+        var tile_bc45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc45/{z}/{x}/{y}.png";
+        var tile_bc60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc60/{z}/{x}/{y}.png";
+        var tile_bc85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc85/{z}/{x}/{y}.png";
+        var tile_cc26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc26/{z}/{x}/{y}.png";
+        var tile_cc45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc45/{z}/{x}/{y}.png";
+        var tile_cc60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc60/{z}/{x}/{y}.png";
+        var tile_cc85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc85/{z}/{x}/{y}.png";
+        var tile_hd26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd26/{z}/{x}/{y}.png";
+        var tile_hd45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd45/{z}/{x}/{y}.png";
+        var tile_hd60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd60/{z}/{x}/{y}.png";
+        var tile_hd85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd85/{z}/{x}/{y}.png";
+        var tile_he26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe26/{z}/{x}/{y}.png";
+        var tile_he45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe45/{z}/{x}/{y}.png";
+        var tile_he60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe60/{z}/{x}/{y}.png";
+        var tile_he85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe85/{z}/{x}/{y}.png";
 
         // Overlay layers (TMS)
         var tile_current = L.tileLayer(tile_current_path, {tms: true, opacity: 0.8, attribution: ""});
         var tile_ac45 = L.tileLayer(tile_ac45_path, {tms: true, opacity: 0.8, attribution: ""});
         var tile_ac85 = L.tileLayer(tile_ac85_path, {tms: true, opacity: 0.8, attribution: ""});
         var tile_bc26 = L.tileLayer(tile_bc26_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_bc45 = L.tileLayer(tile_bc45_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_bc60 = L.tileLayer(tile_bc60_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_bc85 = L.tileLayer(tile_bc85_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_cc26 = L.tileLayer(tile_cc26_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_cc45 = L.tileLayer(tile_cc45_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_cc60 = L.tileLayer(tile_cc60_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_cc85 = L.tileLayer(tile_cc85_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_hd26 = L.tileLayer(tile_hd26_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_hd45 = L.tileLayer(tile_hd45_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_hd60 = L.tileLayer(tile_hd60_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_hd85 = L.tileLayer(tile_hd85_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_he26 = L.tileLayer(tile_he26_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_he45 = L.tileLayer(tile_he45_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_he60 = L.tileLayer(tile_he60_path, {tms: true, opacity: 0.8, attribution: ""});
+        var tile_he85 = L.tileLayer(tile_he85_path, {tms: true, opacity: 0.8, attribution: ""});
         // var overlaymaps = {"Layer": tile_current}
 
         var init_lat = {{ obj_show['init_lat'] }};
@@ -268,7 +318,22 @@
             "Pearl: Current": tile_current,
             "Pearl: AC 4.5": tile_ac45,
             "Pearl: AC 8.5": tile_ac85,
-            "Pearl: BC 2.6": tile_bc26
+            "Pearl: BC 2.6": tile_bc26,
+            "Pearl: BC 4.5": tile_bc45,
+            "Pearl: BC 6.0": tile_bc60,
+            "Pearl: BC 8.5": tile_bc85,
+            "Pearl: CC 2.6": tile_cc26,
+            "Pearl: CC 4.5": tile_cc45,
+            "Pearl: CC 6.0": tile_cc60,
+            "Pearl: CC 8.5": tile_cc85,
+            "Pearl: HD 2.6": tile_hd26,
+            "Pearl: HD 4.5": tile_hd45,
+            "Pearl: HD 6.0": tile_hd60,
+            "Pearl: HD 8.5": tile_hd85,
+            "Pearl: HE 2.6": tile_he26,
+            "Pearl: HE 4.5": tile_he45,
+            "Pearl: HE 6.0": tile_he60,
+            "Pearl: HE 8.5": tile_he85
         };
         L.control.layers(basemaps, overlaymaps, {collpased: false}).addTo(map);
 
@@ -312,6 +377,36 @@
             var ac85_box = $(".leaflet-control-layers-overlays > label > div > input")[2];
             /* Pearl BC 2.6 */
             var bc26_box = $(".leaflet-control-layers-overlays > label > div > input")[3];
+            /* Pearl BC 4.5 */
+            var bc45_box = $(".leaflet-control-layers-overlays > label > div > input")[4];
+            /* Pearl BC 6.0 */
+            var bc60_box = $(".leaflet-control-layers-overlays > label > div > input")[5];
+            /* Pearl BC 8.5 */
+            var bc85_box = $(".leaflet-control-layers-overlays > label > div > input")[6];
+            /* Pearl CC 2.6 */
+            var cc26_box = $(".leaflet-control-layers-overlays > label > div > input")[7];
+            /* Pearl CC 4.5 */
+            var cc45_box = $(".leaflet-control-layers-overlays > label > div > input")[8];
+            /* Pearl CC 6.0 */
+            var cc60_box = $(".leaflet-control-layers-overlays > label > div > input")[9];
+            /* Pearl CC 8.5 */
+            var cc85_box = $(".leaflet-control-layers-overlays > label > div > input")[10];
+            /* Pearl HD 2.6 */
+            var hd26_box = $(".leaflet-control-layers-overlays > label > div > input")[11];
+            /* Pearl HD 4.5 */
+            var hd45_box = $(".leaflet-control-layers-overlays > label > div > input")[12];
+            /* Pearl HD 6.0 */
+            var hd60_box = $(".leaflet-control-layers-overlays > label > div > input")[13];
+            /* Pearl HD 8.5 */
+            var hd85_box = $(".leaflet-control-layers-overlays > label > div > input")[14];
+            /* Pearl HE 2.6 */
+            var he26_box = $(".leaflet-control-layers-overlays > label > div > input")[15];
+            /* Pearl HE 4.5 */
+            var he45_box = $(".leaflet-control-layers-overlays > label > div > input")[16];
+            /* Pearl HE 6.0 */
+            var he60_box = $(".leaflet-control-layers-overlays > label > div > input")[17];
+            /* Pearl HE 8.5 */
+            var he85_box = $(".leaflet-control-layers-overlays > label > div > input")[18];
         });
     </script>
 </div>

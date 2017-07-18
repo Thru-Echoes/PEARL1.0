@@ -6,7 +6,7 @@ import argparse
 from unittest import TestCase
 import math
 import csv
-import psycopg2 as psy
+## import psycopg2 as psy
 from functools import wraps
 
 def check_args():

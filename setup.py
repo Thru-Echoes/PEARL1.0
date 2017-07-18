@@ -10,7 +10,7 @@ from distutils.command.build_ext import build_ext
 from distutils.errors import CCompilerError, DistutilsExecError, \
     DistutilsPlatformError
 
-VERSION = '0.0.1'
+VERSION = '0.5.0'
 DESCRIPTION = "PEARL x EWAIM: an extensible web app for interactive mapping"
 
 CLASSIFIERS = filter(None, map(str.strip,
@@ -24,14 +24,14 @@ Topic :: Software Development :: Libraries :: Python Modules
 """.splitlines()))
 
 setup(
-        name="PEARL2.0",
+        name="PEARL1.0",
         version=VERSION,
         description=DESCRIPTION,
         long_description=DESCRIPTION,
         classifiers=CLASSIFIERS,
         author="Oliver Muellerklein",
         author_email="omuellerklein@berkeley.edu",
-        url="http://github.com/Thru-Echoes/PEARL2.0",
+        url="http://github.com/Thru-Echoes/PEARL1.0",
         license="BSD",
         packages=['ewaim', 'ewaim.tests'],
         platforms=['any'],
