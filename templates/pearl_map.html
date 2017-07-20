@@ -28,9 +28,10 @@
         $(window).load(function() {
 
             var model_data = {{ obj_sp|tojson }};
-            var model_string = model_data[0]["Model"];
-            var native_string = model_data[0]["native_habitat_change"];
-            var global_string = model_data[0]["global_habitat_change"];
+            debugger;
+            var model_string = model_data[2]["X"];
+            var native_string = model_data[2]["tss"];
+            var global_string = model_data[2]["roc"];
             var model_li = $("#Model1");
             var native_li = $("#native_habitat_change1");
             var global_li = $("#global_habitat_change1");
@@ -38,9 +39,9 @@
             native_li.html(native_string);
             global_li.html(global_string);
 
-            model_string = model_data[1]["Model"];
-            native_string = model_data[1]["native_habitat_change"];
-            global_string = model_data[1]["global_habitat_change"];
+            var model_string = model_data[3]["X"];
+            var native_string = model_data[3]["tss"];
+            var global_string = model_data[3]["roc"];
             model_li = $("#Model2");
             native_li = $("#native_habitat_change2");
             global_li = $("#global_habitat_change2");
@@ -48,9 +49,9 @@
             native_li.html(native_string);
             global_li.html(global_string);
 
-            model_string = model_data[2]["Model"];
-            native_string = model_data[2]["native_habitat_change"];
-            global_string = model_data[2]["global_habitat_change"];
+            var model_string = model_data[4]["X"];
+            var native_string = model_data[4]["tss"];
+            var global_string = model_data[4]["roc"];
             model_li = $("#Model3");
             native_li = $("#native_habitat_change3");
             global_li = $("#global_habitat_change3");
