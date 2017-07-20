@@ -74,7 +74,7 @@ def index():
                     }
                     ## Pull in PEARL metadata
                     # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ABBREVIATA_BANCROFTI.csv")
+                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ABBREVIATA_BANCROFTI_pearldata.csv")
                     #return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
                     return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
@@ -281,7 +281,7 @@ def index():
                     }
                     ## Pull in PEARL metadata
                     # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ZYGOCOTYLE_LUNATA.csv")
+                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ZYGOCOTYLE_LUNATA_pearldata.csv")
                     # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
                     return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
