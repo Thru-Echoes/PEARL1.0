@@ -18,55 +18,108 @@
 <!-- div id="push-top-index" style="height: 100px"></div -->
 <div class="container">
 </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 style="text-align: center;"><b><i>{{ obj_show['prop_name'] }}</i><b></h1>
+            <!--div class="container" style="padding: 10px; ">
+                <table id="csv-table" data-toggle="true" data-show-columns="true" data-pagination="true" data-height="500">
+                    <thead>
+                        <tr class="click-row" data-href="/">
+                            <th data-field="id" data-sortable="true">Species ID</th>
+                            <th data-field="science_name" data-sortable="true">Scientific Name</th>
+                            <th data-field="clade" data-sortable="true">Clade</th>
+                            <th data-field="iucn" data-sortable="true">IUCN</th>
+                            <th data-field="coverage" data-sortable="true">Data Collection Quality</th>
+                            <th data-field="uncertain" data-sortable="true">Model Quality</th>
+                            <th data-field="sources" data-sortable="true">Data Sources</th>
+                            <th data-field="tss" data-sortable="true">True Skill Statistic</th>
+                            <th data-field="roc" data-sortable="true">Area Under Curve</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div-->
+            <div class="row">
+                <div class="col-md-3">
+                    <div style="height: 0px;"></div>
+                    <h2 style="style: center;">
+                        True Skill Statistic
+                    </h2>
+                </div>
+                <div class="col-md-3">
+                    <div style="height: 0px;"></div>
+                    <h2 style="style: center;">
+                        Area Under Curve
+                    </h2>
+                </div>
+                <div class="col-md-3">
+                    <div style="height: 0px;"></div>
+                    <h2 style="style: center;">
+                        Data Quality
+                    </h2>
+                </div>
+                <div class="col-md-3">
+                    <div style="height: 0px;"></div>
+                    <h2 style="style: center;">
+                        Model Uncertainity
+                    </h2>
+                </div>
+            </div>
+            <div style="height: 200px;"></div>
+        </div>
+    </div>
+</div>
+
 <div id="push-before-map" style="height: 10px;"></div>
 <div class="container-fluid" id="map-container">
-    <div id="map-id" style="width:100%;"></div>
+    <div id="map-id" style="width:85%;"></div>
     <!--script src="./static/js/HeatLayer.js"></script>
     <script src="./static/js/leaflet-heat.js"></script-->
     <script src="./static/js/map-util.js"></script>
     <script type="text/javascript">
         $(window).load(function() {
+            var model_array = ['ac45','ac85','bc26','bc45','bc60','bc85','cc26','cc45','cc60','cc85','hd26','hd45','hd60','hd85','he26','he45','he60','he80']
 
             var model_data = {{ obj_sp|tojson }};
-            debugger;
-            var model_string = model_data[2]["X"];
+
+            var model_string = model_array[0];
             var native_string = model_data[2]["tss"];
             var global_string = model_data[2]["roc"];
             var model_li = $("#Model1");
             var native_li = $("#native_habitat_change1");
             var global_li = $("#global_habitat_change1");
-            model_li.html(model_string + " (Green)");
+            model_li.html(model_string);
             native_li.html(native_string);
             global_li.html(global_string);
 
-            var model_string = model_data[3]["X"];
+            var model_string = model_array[1];
             var native_string = model_data[3]["tss"];
             var global_string = model_data[3]["roc"];
             model_li = $("#Model2");
             native_li = $("#native_habitat_change2");
             global_li = $("#global_habitat_change2");
-            model_li.html(model_string + " (Yellow)");
+            model_li.html(model_string);
             native_li.html(native_string);
             global_li.html(global_string);
 
-            var model_string = model_data[4]["X"];
+            var model_string = model_array[2];
             var native_string = model_data[4]["tss"];
             var global_string = model_data[4]["roc"];
             model_li = $("#Model3");
             native_li = $("#native_habitat_change3");
             global_li = $("#global_habitat_change3");
-            model_li.html(model_string + " (Red)");
+            model_li.html(model_string);
             native_li.html(native_string);
             global_li.html(global_string);
+            
+            for (var i = 5; i < model_data.length; i++) {
 
-            for (var i = 3; i < model_data.length; i++) {
-
-                model_string = model_data[i]["Model"];
-                native_string = model_data[i]["native_habitat_change"];
-                global_string = model_data[i]["global_habitat_change"];
-                model_li = $("#Model" + (i + 1))
-                native_li = $("#native_habitat_change" + (i + 1));
-                global_li = $("#global_habitat_change" + (i + 1));
+                model_string = model_array[i-2];
+                native_string = model_data[i]["tss"];
+                global_string = model_data[i]["roc"];
+                model_li = $("#Model" + (i - 1))
+                native_li = $("#native_habitat_change" + (i - 1));
+                global_li = $("#global_habitat_change" + (i - 1));
                 model_li.html(model_string);
                 native_li.html(native_string);
                 global_li.html(global_string);
@@ -104,25 +157,25 @@
 
         /*var tile_current_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";*/
 
-        var tile_current_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";
-        var tile_ac45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac45/{z}/{x}/{y}.png";
-        var tile_ac85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac85/{z}/{x}/{y}.png";
-        var tile_bc26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc26/{z}/{x}/{y}.png";
-        var tile_bc45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc45/{z}/{x}/{y}.png";
-        var tile_bc60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc60/{z}/{x}/{y}.png";
-        var tile_bc85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc85/{z}/{x}/{y}.png";
-        var tile_cc26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc26/{z}/{x}/{y}.png";
-        var tile_cc45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc45/{z}/{x}/{y}.png";
-        var tile_cc60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc60/{z}/{x}/{y}.png";
-        var tile_cc85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc85/{z}/{x}/{y}.png";
-        var tile_hd26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd26/{z}/{x}/{y}.png";
-        var tile_hd45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd45/{z}/{x}/{y}.png";
-        var tile_hd60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd60/{z}/{x}/{y}.png";
-        var tile_hd85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd85/{z}/{x}/{y}.png";
-        var tile_he26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe26/{z}/{x}/{y}.png";
-        var tile_he45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe45/{z}/{x}/{y}.png";
-        var tile_he60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe60/{z}/{x}/{y}.png";
-        var tile_he85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe85/{z}/{x}/{y}.png";
+        var tile_current_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";
+        var tile_ac45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac45/{z}/{x}/{y}.png";
+        var tile_ac85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac85/{z}/{x}/{y}.png";
+        var tile_bc26_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc26/{z}/{x}/{y}.png";
+        var tile_bc45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc45/{z}/{x}/{y}.png";
+        var tile_bc60_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc60/{z}/{x}/{y}.png";
+        var tile_bc85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc85/{z}/{x}/{y}.png";
+        var tile_cc26_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc26/{z}/{x}/{y}.png";
+        var tile_cc45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc45/{z}/{x}/{y}.png";
+        var tile_cc60_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc60/{z}/{x}/{y}.png";
+        var tile_cc85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc85/{z}/{x}/{y}.png";
+        var tile_hd26_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd26/{z}/{x}/{y}.png";
+        var tile_hd45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd45/{z}/{x}/{y}.png";
+        var tile_hd60_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd60/{z}/{x}/{y}.png";
+        var tile_hd85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd85/{z}/{x}/{y}.png";
+        var tile_he26_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe26/{z}/{x}/{y}.png";
+        var tile_he45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe45/{z}/{x}/{y}.png";
+        var tile_he60_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe60/{z}/{x}/{y}.png";
+        var tile_he85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe85/{z}/{x}/{y}.png";
 
         // Overlay layers (TMS)
         var tile_current = L.tileLayer(tile_current_path, {tms: true, opacity: 0.8, attribution: ""});
@@ -175,27 +228,29 @@
             return this._div;
         };
         pearl_info.pearl_update = function(props) {
+
             this._div.innerHTML = '<h3>Species Distribution Models</h3><hr>' +
-                /*'<div id="model-list" class="container">' +*/
+                //'<div id="model-list" class="container">' +
                 '<div class="row"><div class="col-md-4"><h5><b>Model</b></h5>' +
-                '<ul style="list-style-type:none; padding-left: 1px;"><li id="Model1" style="color: rgba(0, 128, 0, 0.6)">foo1</li><br>' +
-                '<li id="Model2" style="color: rgba(204, 204, 0, 0.8)">foo2</li><br>' +
-                '<li id="Model3" style="color: rgba(255, 0, 0, 0.6)">foo3</li><br>' +
-                '<li id="Model4">foo4</li><br>' +
-                '<li id="Model5">foo5</li><br>' +
-                '<li id="Model6">foo6</li><br>' +
-                '<li id="Model7">foo7</li><br>' +
-                '<li id="Model8">foo8</li><br>' +
-                '<li id="Model9">foo9</li><br>' +
-                '<li id="Model10">foo10</li><br>' +
-                '<li id="Model11">foo11</li><br>' +
-                '<li id="Model12">foo12</li><br>' +
-                '<li id="Model13">foo13</li><br>' +
-                '<li id="Model14">foo14</li><br>' +
-                '<li id="Model15">foo15</li><br>' +
-                '<li id="Model16">foo16</li><br>' +
-                '<li id="Model17">foo17</li><br>' +
-                '<li id="Model18">foo18</li><br></ul>' +
+                '<ul style="list-style-type:none; padding-left: 1px;">' +
+                '<li id="Model1" style="color: rgb(255,0,0)">foo1</li><br>' + 
+                '<li id="Model2" style="color: rgb(255,128,0)">foo2</li><br>' +
+                '<li id="Model3" style="color: rgb(255,255,0)">foo3</li><br>' +
+                '<li id="Model4" style="color: rgb(128,255,0)">foo4</li><br>' +
+                '<li id="Model5" style="color: rgb(0,255,0)">foo5</li><br>' +
+                '<li id="Model6" style="color: rgb(0,255,128)">foo6</li><br>' +
+                '<li id="Model7" style="color: rgb(0,255,255)">foo7</li><br>' +
+                '<li id="Model8" style="color: rgb(0,128,255)">foo8</li><br>' +
+                '<li id="Model9" style="color: rgb(0,0,255)">foo9</li><br>' +
+                '<li id="Model10" style="color: rgb(128,0,255)">foo10</li><br>' +
+                '<li id="Model11" style="color: rgb(255,0,255)">foo11</li><br>' +
+                '<li id="Model12" style="color: rgb(255,0,128)">foo12</li><br>' +
+                '<li id="Model13" style="color: rgb(128,128,128)">foo13</li><br>' +
+                '<li id="Model14" style="color: rgb(255,153,153)">foo14</li><br>' +
+                '<li id="Model15" style="color: rgb(153,204,255)">foo15</li><br>' +
+                '<li id="Model16" style="color: rgb(204,153,255)">foo16</li><br>' +
+                '<li id="Model17" style="color: rgb(255,255,153)">foo17</li><br>' +
+                '<li id="Model18" style="color: rgb(255,204,204)">foo18</li><br></ul>' +
                 '</div><div class="col-md-4"><p><b>Native Habitat Change</b></p>' +
                 '<ul style="list-style-type:none;"><li id="native_habitat_change1">native1</li><br>' +
                 '<li id="native_habitat_change2">native2</li><br>' +
@@ -255,10 +310,9 @@
             return this._div;
         };
         loc_info.loc_update = function(props) {
-            this._div.innerHTML = '<h3>Location</h3><hr>' +
-                '<div class="row"><div class="col-md-6"><h5><b>Lat.</b></h5>' +
+            this._div.innerHTML = '<div class="row"><div class="col-md-6"><h5><b>Lat.</b></h5>' +
                 '<ul style="list-style-type:none; padding-left: 1px;"><li id="curr_lat">' + init_lat + '</li><br></ul>' +
-                '</div><div class="col-md-6"><p><b>Long.</b></p>' +
+                '</div><div class="col-md-6"><h5><b>Long.</b></h5>' +
                 '<ul style="list-style-type:none;"><li id="curr_long">' + init_long + '</li><br></ul>' +
                 '</div></div>';
         };
@@ -412,56 +466,6 @@
         </div>
     </div>
 </div-->
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 style="text-align: center;">Current Species: <i>{{ obj_show['prop_name'] }}</i></h1>
-            <!--div class="container" style="padding: 10px; ">
-                <table id="csv-table" data-toggle="true" data-show-columns="true" data-pagination="true" data-height="500">
-                    <thead>
-                        <tr class="click-row" data-href="/">
-                            <th data-field="id" data-sortable="true">Species ID</th>
-                            <th data-field="science_name" data-sortable="true">Scientific Name</th>
-                            <th data-field="clade" data-sortable="true">Clade</th>
-                            <th data-field="iucn" data-sortable="true">IUCN</th>
-                            <th data-field="coverage" data-sortable="true">Data Collection Quality</th>
-                            <th data-field="uncertain" data-sortable="true">Model Quality</th>
-                            <th data-field="sources" data-sortable="true">Data Sources</th>
-                            <th data-field="tss" data-sortable="true">True Skill Statistic</th>
-                            <th data-field="roc" data-sortable="true">Area Under Curve</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div-->
-            <div class="row">
-                <div class="col-md-3">
-                    <div style="height: 100px;"></div>
-                    <h2 style="style: center;">
-                        True Skill Statistic
-                    </h2>
-                </div>
-                <div class="col-md-3">
-                    <div style="height: 100px;"></div>
-                    <h2 style="style: center;">
-                        Area Under Curve
-                    </h2>
-                </div>
-                <div class="col-md-3">
-                    <div style="height: 100px;"></div>
-                    <h2 style="style: center;">
-                        Data Quality
-                    </h2>
-                </div>
-                <div class="col-md-3">
-                    <div style="height: 100px;"></div>
-                    <h2 style="style: center;">
-                        Model Uncertainity
-                    </h2>
-                </div>
-            </div>
-            <div style="height: 500px;"></div>
-        </div>
-    </div>
-</div>
+
 <div id="push-index-bottom" style="height: 100px;"></div>
 {% endblock %}

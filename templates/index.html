@@ -5,7 +5,7 @@
 <div class="contain-all">
     <div id="push-before-map" style="height: 10px;"></div>
     <div class="container-fluid" id="map-container">
-        <div id="map-intro" style="width:100%;"></div>
+        <!--<div id="map-intro" style="width:100%;"></div>-->
         <!--script src="./static/js/HeatLayer.js"></script>
         <script src="./static/js/leaflet-heat.js"></script-->
         <script src="./static/js/map-util.js"></script>
@@ -102,11 +102,20 @@
             //addControlPlaceholders(map);
         </script>
     </div>
-    <div id="push-index-bottom0" style="height: 100px"></div>
+    <div id="menu">
+        <nav>
+            <ul>
+                <li><a href='http://About.html'>About</a></li>
+                <li><a href='http://169.229.201.201:5051'>Home</a></li>
+            <li><a href='http://faq.html'>FAQ</a></li>
+            </br>
+            </ul>
+        </nav>
+    </div
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 style="text-align: center;">Mapping PEARL</h1>
+                <h1 style="text-align: center;">PEARL</h1>
                 <h2 style="text-align: center;">
                     The Parasite Extinction Assessment and Red List
                 </h2>
@@ -115,10 +124,37 @@
                     <em>The world's first parasite conservation database</em>
                 </h3>
                 <br>
-                <h5 style="text-align: center;">Authors of this site: Oliver Muellerklein and Zhongqi Miao</h5>
+                
             </div>
         </div>
     </div>
+    <div id="search" style="text-align:center"></div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <!-- <script src="js/select2.min.js"></script> -->
+    <script type="text/javascript">
+        Spname = ["Anna","Boe","June","July"]; //put it into json from app.py ??
+        text =''
+        text += '<select id="search-bar" style="width:300px">';
+        for(i = 0; i < Spname.length; i++){
+            text += '<option value="' + Spname[i] + '">' + Spname[i] + '</option>';
+        }
+        text += '</select>';
+        document.getElementById("search").innerHTML = text
+        /*$('select').select2({
+            theme: 'bootstrap'
+        });*/
+        /*text =''
+        text += '<select id= "search-bar">'
+        for(i=0;i<Spname.length;i++){
+            text += '<option value="' + Spname[i] + '">' + Spname[i] + '</option>'
+        } 
+        text += '</select>'
+        document.getElementById("search").innerHTML = text*/
+
+    </script>
     <div id="push-index-bottom1" style="height: 120px"></div>
     <div class="container-fluid" style="background-color: rgba(238, 238, 238, 0.75)">
         <div id="push-index-bottom2" style="height: 100px"></div>

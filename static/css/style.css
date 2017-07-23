@@ -81,6 +81,39 @@ h2 {
 }
 
 /*********************************************
+* Menu bar
+*********************************************/
+
+#menu nav {
+    border-radius: 10px;
+    margin: auto;
+    height: 42px;
+    width: 1230px;
+    padding: 0 50px;
+    background-color: cornflowerblue;
+    opacity: 0.85;
+    filter:alpha (opacity=50); /*E8 earlier */
+}
+#menu nav ul{
+    list-style: none;
+}
+#menu nav ul li a{
+    float:left;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 0px 40px;
+    text-align:center;
+    line-height:42px;
+    height: 42px;
+}
+
+#menu nav ul li a:hover{
+    background-color: #FFFFFF;
+    color: cornflowerblue;
+}
+
+
+/*********************************************
 * CSV Table
 *********************************************/
 
@@ -236,7 +269,7 @@ h2 {
 
 .asd {
     height: 200px;
-    border: 1px solid #444;
+    border: 1px solid 444;
     background-color: rgba(0,0,0,0.2);
 }
 
@@ -317,8 +350,8 @@ h2 {
     background: rgba(255,255,255,0.8);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
-    width: 500px;
-    height: 180px;
+    width: 410px;
+    height: 67px;
 }
 .loc_info h4 {
     margin: 0 0 2px;
