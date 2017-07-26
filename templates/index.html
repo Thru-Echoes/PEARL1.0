@@ -10,15 +10,15 @@
         <script src="./static/js/leaflet-heat.js"></script-->
         <script src="./static/js/map-util.js"></script>
         <script type="text/javascript">
-           
+
         </script>
     </div>
     <div id="menu">
         <nav>
             <ul>
-                <li><a href='http://About.html'>About</a></li>
-                <li><a href='http://169.229.201.201:5051'>Home</a></li>
-            <li><a href='http://faq.html'>FAQ</a></li>
+                <li><a href="{{ url_for('index') }}">About</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('index') }}">FAQ</a></li>
             </br>
             </ul>
         </nav>
@@ -26,7 +26,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 style="text-align: center;">PEARL</h1>
+                <h1 style="text-align: center; font-size: 700%; padding-top: 100px; padding-bottom: 50px;">PEARL</h1>
                 <h2 style="text-align: center;">
                     The Parasite Extinction Assessment and Red List
                 </h2>
@@ -35,19 +35,19 @@
                     <em>The world's first parasite conservation database</em>
                 </h3>
                 <br>
-                
+
             </div>
         </div>
     </div>
     <div class="container" id="search" style="text-align: center"></div>
-    
+
     <!--div id="search" style="text-align:center"></div>
     <script type="text/javascript">
         Spname = ["Zygocotyle lunata","Boe","June","July"]; //put it into json from app.py ??
-        text = '<form role="form" method="POST" action="">' + 
+        text = '<form role="form" method="POST" action="">' +
         '<div class="form-group">' +
         '<label for="searchbar">Search Bar:</label>' +
-        '<select id="searchbar" style="width:300px" name="searchbar">'; 
+        '<select id="searchbar" style="width:300px" name="searchbar">';
         for(i = 0; i < Spname.length; i++){
             text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
         }
@@ -58,7 +58,7 @@
         document.getElementById("search").innerHTML = text
         $('select').select2({
             theme: 'bootstrap'
-        }); 
+        });
 
     </script-->
 
@@ -74,14 +74,14 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <form role="form" method='POST' action=''>
-                                    <div class="form-group"> 
+                                    <div class="form-group">
                                         <!--input type = "text" name = "query_string" class = "form-control" id = "query-box" placeholder = "Enter query" style = "max-width: 300px;" autofocus required-->
                                         <fieldset class="form-group">
                                             <legend>Example Species to Use:</legend>
                                             <div class="form-check" id = "form-check">
                                             </div>
                                         </fieldset>
-                                        
+
                                    </div>
                                     <button type="submit" class="btn btn-default">Render Map</button>
                                 </form>
@@ -109,8 +109,10 @@
 </div>
 <script type="text/javascript">
         Spname = ["Zygocotyle lunata","Boe","June","July"]; //put it into json from app.py ??
-        text = '<label for="searchbar">Search Bar:</label>' +
-        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">'; 
+        /*text = '<label for="searchbar">Search Bar:</label>' +
+        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">';*/
+        text = '<label for="searchbar"></label>' +
+        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required"><option value="foo_sp"><b><i>Pick a species here...</i></b></option>';
         for(i = 0; i < Spname.length; i++){
             text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
         }
@@ -119,7 +121,7 @@
         document.getElementById("form-check").innerHTML = text
         $('select').select2({
             theme: 'bootstrap'
-        }); 
+        });
 </script>
 <script>
     $(document).ready(function () {

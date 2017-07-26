@@ -61,11 +61,15 @@ def index():
         print("POST request in index")
         print("------\n")
 
-        print(request.form['searchbar'])
-
         if request.form['searchbar']:
+
             try:
-                req_raw = request.form['searchbar'] #change all values in index.html into species names instead of abbrreviation  
+                req_raw = request.form['searchbar'] #change all values in index.html into species names instead of abbrreviation
+
+                if req_raw == "foo_sp":
+                    flash("Please pick a species to render the map page.")
+                    return redirect(request.url)
+
                 req_raw = req_raw.lower()
                 init_zoom = 3
                 init_lat = 11.252725743861603

@@ -27,13 +27,27 @@ h2 {
 */
 
 /*********************************************
-* Class tags for entry boxes
+* Select2 + home page CSS
 *********************************************/
+
+#select2-searchbar-container {
+    background-color: rgba(255, 255, 255, 0.6);
+}
 
 #select2-search-bar-container {
     border-style: solid;
     border-color: green;
-    }
+}
+
+.select2-container {
+    background-color: rebeccapurple; 
+}
+
+/*********************************************
+* Class tags for entry boxes
+*********************************************/
+
+
 .page {
     margin: 2em auto;
     /*width: 35em;*/
