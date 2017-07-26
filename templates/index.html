@@ -10,96 +10,7 @@
         <script src="./static/js/leaflet-heat.js"></script-->
         <script src="./static/js/map-util.js"></script>
         <script type="text/javascript">
-            $(window).load(function() {
-                /*var csv_data = "SOME OBJ";
-                $(function() {
-                    $("#csv_table").bootstrapTable({
-                        data: csv_data
-                    });
-                });*/
-            });
-            $(document).ready(function($) {
-                /*$(".click-row").click(function() {
-                    window.document.location = $(this).data("href");
-                    //window.location = $(this).data("url");
-                });*/
-            });
-
-            /***************************************
-            * Various basemaps
-            ***************************************/
-
-            //  .. OpenStreetMap
-            var osm_base = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'});
-
-            //  .. CartoDB Positron
-            var cartodb_base = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'});
-
-            //  .. OSM Toner
-            var toner_base = L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png', {attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'});
-
-            //  .. White background
-            var white_base = L.tileLayer("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEAAQMAAABmvDolAAAAA1BMVEX///+nxBvIAAAAH0lEQVQYGe3BAQ0AAADCIPunfg43YAAAAAAAAAAA5wIhAAAB9aK9BAAAAABJRU5ErkJggg==");
-
-            var basemaps = {"OpenStreetMap": osm_base, "CartoDB Basemap": cartodb_base, "Stamen Toner": toner_base, "Remove background (white)": white_base};
-
-            /***************************************
-            * Set params for core map
-            ***************************************/
-
-            var center_lat_lng = [11.252725743861603, -0.005242086131886481];
-
-            /***************************************
-            * Set core map
-            ***************************************/
-
-            var map = L.map('map-intro', {
-                center: center_lat_lng,
-                zoom: 3,
-                minZoom: 3,
-                maxZoom: 3,
-                layers: [cartodb_base]
-            });
-
-            /***************************************
-            * Set controls over map
-            ***************************************/
-
-            L.control.scale({position: 'topleft'}).addTo(map);
-
-            /***************************************
-            * Simple heatmap
-            ***************************************/
-
-            /***************************************
-            * Misc.
-            ***************************************/
-
-            /* Adjust map layout for menu + zoom controls */
-
-            var this_height = $('#map-intro').height();
-
-            // Create additional Control placeholders
-            function addControlPlaceholders(map) {
-                var corners = map._controlCorners,
-                    l = 'leaflet-',
-                    container = map._controlContainer;
-
-                function createCorner(vSide, hSide, wildSide = false) {
-                    if (wildSide) {
-                        var className = l + vSide + ' ' + l + hSide;
-                        corners[vSide + hSide] = L.DomUtil.create('div', className, container);
-                    } else {
-                        var className = l + vSide + ' ' + l + hSide;
-                        corners[vSide + hSide] = L.DomUtil.create('div', className, container);
-                    }
-                }
-
-                createCorner('verticalcenter', 'left');
-                createCorner('verticalcenter', 'right');
-                createCorner('wildcard', 'left', true);
-            }
-            //addControlPlaceholders(map);
+           
         </script>
     </div>
     <div id="menu">
@@ -128,33 +39,31 @@
             </div>
         </div>
     </div>
-    <div id="search" style="text-align:center"></div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-    <!-- <script src="js/select2.min.js"></script> -->
+    <div class="container" id="search" style="text-align: center"></div>
+    
+    <!--div id="search" style="text-align:center"></div>
     <script type="text/javascript">
-        Spname = ["Anna","Boe","June","July"]; //put it into json from app.py ??
-        text =''
-        text += '<select id="search-bar" style="width:300px">';
+        Spname = ["Zygocotyle lunata","Boe","June","July"]; //put it into json from app.py ??
+        text = '<form role="form" method="POST" action="">' + 
+        '<div class="form-group">' +
+        '<label for="searchbar">Search Bar:</label>' +
+        '<select id="searchbar" style="width:300px" name="searchbar">'; 
         for(i = 0; i < Spname.length; i++){
-            text += '<option value="' + Spname[i] + '">' + Spname[i] + '</option>';
+            text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
         }
-        text += '</select>';
+        text += '</select>' +
+        '<buttom type="submit" class="btn btn-default" id="hellyeah"> Render Map </bottom>' +
+        '</div>'
+        '</form>';
         document.getElementById("search").innerHTML = text
-        /*$('select').select2({
+        $('select').select2({
             theme: 'bootstrap'
-        });*/
-        /*text =''
-        text += '<select id= "search-bar">'
-        for(i=0;i<Spname.length;i++){
-            text += '<option value="' + Spname[i] + '">' + Spname[i] + '</option>'
-        } 
-        text += '</select>'
-        document.getElementById("search").innerHTML = text*/
+        }); 
 
-    </script>
+    </script-->
+
+
+
     <div id="push-index-bottom1" style="height: 120px"></div>
     <div class="container-fluid" style="background-color: rgba(238, 238, 238, 0.75)">
         <div id="push-index-bottom2" style="height: 100px"></div>
@@ -165,74 +74,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <form role="form" method='POST' action=''>
-                                    <div class="form-group">
+                                    <div class="form-group"> 
                                         <!--input type = "text" name = "query_string" class = "form-control" id = "query-box" placeholder = "Enter query" style = "max-width: 300px;" autofocus required-->
                                         <fieldset class="form-group">
                                             <legend>Example Species to Use:</legend>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option-abba" checked>
-                                                    Species: <i>Abbreviata bancrofti</i>
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios5" value="option-abha" checked>
-                                                    Species: <i>Abbreviata hastaspicula</i>
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios6" value="option-agag" checked>
-                                                    Species: <i>Aglenchus agricola</i>
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios7" value="option-alpr" checked>
-                                                    Species: <i>Alaimus primitivus</i>
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios8" value="option-alfi" checked>
-                                                    Species: <i>Allocorrigia filiformis</i>
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios9" value="option-alco" checked>
-                                                    Species: <i>Alloglossidium corti</i>
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios10" value="option-ampe" checked>
-                                                    Species: <i>Amalaraeus penicilliger</i>
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option-aslo" checked>
-                                                    Species: <i>Ascocotyle longa</i>
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option-ctca" checked>
-                                                    Species: <i>Ctenocephalides canis</i>
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option-zylu" checked>
-                                                    Species: <i>Zygocotyle lunata</i>
-                                                </label>
+                                            <div class="form-check" id = "form-check">
                                             </div>
                                         </fieldset>
-                                        <!--input type="radio" name="pick_data" value="temp_go"/>
-                                        <input type="radio" name="pick_data" value="pearl_go"/-->
-                                    </div>
+                                        
+                                   </div>
                                     <button type="submit" class="btn btn-default">Render Map</button>
                                 </form>
                             </div>
@@ -245,7 +95,6 @@
                         <br>
                         <ol>
                             <li><p><a href="/get_calc">Ask simple math</a></p></li>
-                            <!--li><p><a href="/file_upload">Go to file upload page</a></p></li-->
                             <li><p>Go to file upload page</p></li>
                             <li><p>Time range based on <i>Bootstrap sliders</i></p></li>
                             <li><p>Render map from backend based on user query</p></li>
@@ -258,4 +107,26 @@
         <div id="push-index-bottom" style="height: 300px;"></div>
     </div>
 </div>
+<script type="text/javascript">
+        Spname = ["Zygocotyle lunata","Boe","June","July"]; //put it into json from app.py ??
+        text = '<label for="searchbar">Search Bar:</label>' +
+        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">'; 
+        for(i = 0; i < Spname.length; i++){
+            text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
+        }
+        text += '</select>';
+        text2= 'hey'
+        document.getElementById("form-check").innerHTML = text
+        $('select').select2({
+            theme: 'bootstrap'
+        }); 
+</script>
+<script>
+    $(document).ready(function () {
+        $('.select2').on('change', function () {
+            $(this).valid();
+        });
+        return false;
+    });
+</script>
 {% endblock body %}

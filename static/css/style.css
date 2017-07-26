@@ -30,6 +30,10 @@ h2 {
 * Class tags for entry boxes
 *********************************************/
 
+#select2-search-bar-container {
+    border-style: solid;
+    border-color: green;
+    }
 .page {
     margin: 2em auto;
     /*width: 35em;*/

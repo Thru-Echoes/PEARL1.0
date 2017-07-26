@@ -7,6 +7,7 @@ import os
 import csv
 import errno
 import json
+import re
 ## import psycopg2 as psy
 from functools import wraps
 ## from ewaim import calculate
@@ -45,6 +46,14 @@ makePathExist('static/db')
 
 ## Setup Middleware / routes to each web page
 
+#get species names
+splist = os.listdir('./static/csv/pearl_sp')
+pattern = '[A-Z]+.+[A-Z]'
+for i in range(0,len(splist)):
+    name = re.findall(pattern,splist[i])[0]
+    name =name.lower().capitalize().replace('_',' ')
+    splist[i] = name
+
 @app.route("/", methods = ["GET", "POST"])
 def index():
     if request.method == "POST":
@@ -52,242 +61,33 @@ def index():
         print("POST request in index")
         print("------\n")
 
-        if request.form['optionsRadios']:
+        print(request.form['searchbar'])
+
+        if request.form['searchbar']:
             try:
-                req_raw = request.form['optionsRadios']
-                if req_raw == "option-abba":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "abbreviata_bancrofti"
-                    prop_name = "Abbreviata bancrofti"
-                    sub_name = ""
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ABBREVIATA_BANCROFTI_pearldata.csv")
-                    #return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
+                req_raw = request.form['searchbar'] #change all values in index.html into species names instead of abbrreviation  
+                req_raw = req_raw.lower()
+                init_zoom = 3
+                init_lat = 11.252725743861603
+                init_long = -0.005242086131886481
+                data_name = "Global Parasite Distributions"
+                pearl_sp = req_raw.replace(' ','_')
+                prop_name = req_raw.capitalize()
+                sub_name = ""
+                obj_show = {
+                    "pearl_sp" : pearl_sp,
+                    "prop_name" : prop_name,
+                    "sub_name" : sub_name,
+                    "data_name" : data_name,
+                    "init_zoom" : init_zoom,
+                    "init_lat" : init_lat,
+                    "init_long" : init_long
+                }
+                spfilename = req_raw.upper().replace(' ','_')
+                pathName = "./static/csv/pearl_sp/" + spfilename + "_pearldata.csv"
+                obj_sp = get_csv(csv_path = pathName)
+                return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
 
-                elif req_raw == "option-abha":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "abbreviata_hastaspicula"
-                    prop_name = "Abbreviata hastaspicula"
-                    sub_name = ""
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ABBREVIATA_HASTASPICULA.csv")
-                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
-
-                elif req_raw == "option-agag":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "aglenchus_agricola"
-                    prop_name = "Aglenchus agricola"
-                    sub_name = ""
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/AGLENCHUS_AGRICOLA.csv")
-                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
-
-                elif req_raw == "option-alpr":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "alaimus_primitivus"
-                    prop_name = "Alaimus primitivus"
-                    sub_name = ""
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ALAIMUS_PRIMITIVUS.csv")
-                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
-
-                elif req_raw == "option-alfi":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "allocorrigia_filiformis"
-                    prop_name = "Allocorrigia filiformis"
-                    sub_name = ""
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ALLOCORRIGIA_FILIFORMIS.csv")
-                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
-
-                elif req_raw == "option-alco":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "alloglossidium_corti"
-                    prop_name = "Alloglossidium corti"
-                    sub_name = ""
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ALLOGLOSSIDIUM_CORTI.csv")
-                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
-
-                elif req_raw == "option-ampe":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "amalaraeus penicilliger"
-                    prop_name = "Amalaraeus penicilliger"
-                    sub_name = ""
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/AMALARAEUS_PENICILLIGER.csv")
-                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
-
-                elif req_raw == "option-aslo":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "ascocotyle_longa"
-                    prop_name = "Ascocotyle longa"
-                    sub_name = ""
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ASCOCOTYLE_LONGA.csv")
-                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
-
-                elif req_raw == "option-ctca":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "ctenocephalides_canis"
-                    prop_name = "Ctenocephalides canis"
-                    sub_name = "Common dog flea"
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/CTENOCEPHALIDES_CANIS.csv")
-                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
-
-                elif req_raw == "option-zylu":
-                    init_zoom = 3
-                    init_lat = 11.252725743861603
-                    init_long = -0.005242086131886481
-                    data_name = "Global Parasite Distributions"
-                    pearl_sp = "zygocotyle_lunata"
-                    prop_name = "Zygocotyle lunata"
-                    sub_name = ""
-                    obj_show = {
-                        "pearl_sp" : pearl_sp,
-                        "prop_name" : prop_name,
-                        "sub_name" : sub_name,
-                        "data_name" : data_name,
-                        "init_zoom" : init_zoom,
-                        "init_lat" : init_lat,
-                        "init_long" : init_long
-                    }
-                    ## Pull in PEARL metadata
-                    # obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary_full.csv")
-                    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ZYGOCOTYLE_LUNATA_pearldata.csv")
-                    # return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
-                    return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
-
-                else:
-                    flash("Something went wrong with finding that data...")
-                    return redirect(request.url)
             except:
                 flash("Bad query - could not interpret.")
                 return redirect(request.url)
