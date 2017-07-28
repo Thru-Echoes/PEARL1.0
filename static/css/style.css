@@ -29,6 +29,10 @@ h2 {
 /*********************************************
 * Select2 + home page CSS
 *********************************************/
+#intro{
+    font-size:140%;
+    line-height:20px;
+}
 
 #select2-searchbar-container {
     background-color: rgba(255, 255, 255, 0.6);
@@ -119,7 +123,7 @@ h2 {
     border-radius: 10px;
     margin: auto;
     height: 42px;
-    width: 1230px;
+    width: 90%;
     padding: 0 50px;
     background-color: cornflowerblue;
     opacity: 0.85;
@@ -422,10 +426,10 @@ table {
 }
 
 .footer {
-    /*position: absolute;*/
-    /*bottom: 0;
-    width: 100%;*/
-    background-color: #333;
+    position: absolute;
+    /*bottom: 0;*/
+    width: 100%;
+    background-color: #333; 
     /*background-color: rgba(177, 177, 177, 0.95);*/
 }
 
@@ -442,4 +446,29 @@ table {
     /* color: #9d9d9d; */
     color: rgba(236, 236, 236, 0.7);
     /*color: #000;*/
+}
+
+
+/*************************************************
+********************* About *********************
+*************************************************/
+.about {
+    margin:40px;
+}
+
+.about .row{
+    margin:0 auto;
+
+}
+.about .team-member{
+    text-align: center;
+}
+
+.about img{
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+    border-radius:50px;
+    box-shadow:5px 5px 5px #888888;
+    width: 200px;
+    height: 200px;
 }
