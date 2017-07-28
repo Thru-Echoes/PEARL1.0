@@ -15,9 +15,19 @@
         font-style: italic;
     }
 </style>
-<!-- div id="push-top-index" style="height: 100px"></div -->
-<div class="container">
-</div>
+    <div id="push-before-map" style="height: 10px;"></div>
+    <div id="menu">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('index') }}">FAQ</a></li>
+            </br>
+            </ul>
+        </nav>
+    </div>
+
+<div class="container" style="height: 10px;"></div>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -39,6 +49,7 @@
                     </thead>
                 </table>
             </div-->
+            <div class="container" style="height: 20px;"></div>
             <div class="row">
                 <div class="col-md-3">
                     <div style="height: 0px;"></div>
@@ -71,8 +82,8 @@
 </div>
 
 <div id="push-before-map" style="height: 10px;"></div>
-<div class="container-fluid" id="map-container">
-    <div id="map-id" style="width:85%;"></div>
+<div class="container-fluid" id="map-container" style="width: 850px; margin: 0 auto;">
+    <div id="map-id" style="width:100%;"></div>
     <!--script src="./static/js/HeatLayer.js"></script>
     <script src="./static/js/leaflet-heat.js"></script-->
     <script src="./static/js/map-util.js"></script>
@@ -229,68 +240,26 @@
         };
         pearl_info.pearl_update = function(props) {
 
-            this._div.innerHTML = '<h3>Species Distribution Models</h3><hr>' +
-                //'<div id="model-list" class="container">' +
-                '<div class="row"><div class="col-md-4"><h5><b>Model</b></h5>' +
-                '<ul style="list-style-type:none; padding-left: 1px;">' +
-                '<li id="Model1" style="color: rgb(255,0,0)">foo1</li><br>' +
-                '<li id="Model2" style="color: rgb(255,128,0)">foo2</li><br>' +
-                '<li id="Model3" style="color: rgb(255,255,0)">foo3</li><br>' +
-                '<li id="Model4" style="color: rgb(128,255,0)">foo4</li><br>' +
-                '<li id="Model5" style="color: rgb(0,255,0)">foo5</li><br>' +
-                '<li id="Model6" style="color: rgb(0,255,128)">foo6</li><br>' +
-                '<li id="Model7" style="color: rgb(0,255,255)">foo7</li><br>' +
-                '<li id="Model8" style="color: rgb(0,128,255)">foo8</li><br>' +
-                '<li id="Model9" style="color: rgb(0,0,255)">foo9</li><br>' +
-                '<li id="Model10" style="color: rgb(128,0,255)">foo10</li><br>' +
-                '<li id="Model11" style="color: rgb(255,0,255)">foo11</li><br>' +
-                '<li id="Model12" style="color: rgb(255,0,128)">foo12</li><br>' +
-                '<li id="Model13" style="color: rgb(128,128,128)">foo13</li><br>' +
-                '<li id="Model14" style="color: rgb(255,153,153)">foo14</li><br>' +
-                '<li id="Model15" style="color: rgb(153,204,255)">foo15</li><br>' +
-                '<li id="Model16" style="color: rgb(204,153,255)">foo16</li><br>' +
-                '<li id="Model17" style="color: rgb(255,255,153)">foo17</li><br>' +
-                '<li id="Model18" style="color: rgb(255,204,204)">foo18</li><br></ul>' +
-                '</div><div class="col-md-4"><p><b>Native Habitat Change</b></p>' +
-                '<ul style="list-style-type:none;"><li id="native_habitat_change1">native1</li><br>' +
-                '<li id="native_habitat_change2">native2</li><br>' +
-                '<li id="native_habitat_change3">native3</li><br>' +
-                '<li id="native_habitat_change4">native4</li><br>' +
-                '<li id="native_habitat_change5">native5</li><br>' +
-                '<li id="native_habitat_change6">native6</li><br>' +
-                '<li id="native_habitat_change7">native7</li><br>' +
-                '<li id="native_habitat_change8">native8</li><br>' +
-                '<li id="native_habitat_change9">native9</li><br>' +
-                '<li id="native_habitat_change10">native10</li><br>' +
-                '<li id="native_habitat_change11">native11</li><br>' +
-                '<li id="native_habitat_change12">native12</li><br>' +
-                '<li id="native_habitat_change13">native13</li><br>' +
-                '<li id="native_habitat_change14">native14</li><br>' +
-                '<li id="native_habitat_change15">native15</li><br>' +
-                '<li id="native_habitat_change16">native16</li><br>' +
-                '<li id="native_habitat_change17">native17</li><br>' +
-                '<li id="native_habitat_change18">native18</li><br></ul>' +
-                '</div><div class="col-md-4"><p><b>Global Habitat Change</b></p>' +
-                '<ul style="list-style-type:none;"><li id="global_habitat_change1">global1</li><br>' +
-                '<li id="global_habitat_change2">global2</li><br>' +
-                '<li id="global_habitat_change3">global3</li><br>' +
-                '<li id="global_habitat_change4">global4</li><br>' +
-                '<li id="global_habitat_change5">global5</li><br>' +
-                '<li id="global_habitat_change6">global6</li><br>' +
-                '<li id="global_habitat_change7">global7</li><br>' +
-                '<li id="global_habitat_change8">global8</li><br>' +
-                '<li id="global_habitat_change9">global9</li><br>' +
-                '<li id="global_habitat_change10">global10</li><br>' +
-                '<li id="global_habitat_change11">global11</li><br>' +
-                '<li id="global_habitat_change12">global12</li><br>' +
-                '<li id="global_habitat_change13">global13</li><br>' +
-                '<li id="global_habitat_change14">global14</li><br>' +
-                '<li id="global_habitat_change15">global15</li><br>' +
-                '<li id="global_habitat_change16">global16</li><br>' +
-                '<li id="global_habitat_change17">global17</li><br>' +
-                '<li id="global_habitat_change18">global18</li><br></ul>' +
-                '</div></div>';
+            text = ''
+                text += '<p style="color:white;"><b>Species Dist. Models</b></p><hr>' +
+                    '<div class="row"><div class="col-md-4">' +
+                    '<table name="model-table">' +
+                    '<tr>' +
+                        '<th>Model</th>' +
+                        '<th>Native Habitat Change (%)</th>' +
+                        '<th>Global Habitat Change (%)</th>' +
+                    '</tr>'
+                rgb_array =['0, 0, 255','255, 0, 0','255, 128, 0','255, 255, 0','128, 255, 0','0, 255, 0','0, 255, 128','0, 255, 255','0, 128, 255','0, 0, 255','174, 81, 198','255, 0, 255','255, 0, 127','140, 140, 140','255, 153, 153','153, 204, 255','204, 153, 255','255, 255, 153','255, 204, 204']
+                for( i=1; i<rgb_array.length; i++){
+                    text += '<tr>' +
+                    '<td id="Model'+i+'" style="color: rgb('+rgb_array[i]+')">foo'+i+'</td>' + '<td id="native_habitat_change'+i+'">native'+i+'</td>' +
+                        '<td id="global_habitat_change'+i+'">global'+i+'</td>' +
+                    '</tr>'    
+                }
+                text += '</table> </div>'
+                this._div.innerHTML = text;
         };
+
         pearl_info.addTo(map);
 
         function onMapClick(e) {
@@ -310,11 +279,18 @@
             return this._div;
         };
         loc_info.loc_update = function(props) {
-            this._div.innerHTML = '<div class="row"><div class="col-md-6"><h5><b>Lat.</b></h5>' +
-                '<ul style="list-style-type:none; padding-left: 1px;"><li id="curr_lat">' + init_lat + '</li><br></ul>' +
-                '</div><div class="col-md-6"><h5><b>Long.</b></h5>' +
-                '<ul style="list-style-type:none;"><li id="curr_long">' + init_long + '</li><br></ul>' +
-                '</div></div>';
+            this._div.innerHTML = '<div class="row">' +
+                '<div class="col-md-12">' +
+                '<table id="latlong">' +
+                '<tr>' +
+                '<th><b>Lat.</b></th>' +
+                '<th><b>Long.</b></th>' +
+                '</tr>' +
+                '<tr>' +
+                '<td>'+init_lat+'</td>' +
+                '<td>'+init_long+'</td>' +
+                '</tr>' +
+                '</table>';
         };
         loc_info.addTo(map);
 
@@ -441,7 +417,36 @@
         });
     </script>
 </div>
-<div id="push-pearl-postmap" style="height: 25px;"></div>
+<div id="push-pearl-postmap" style="height: 50px;"></div>
+
+<div class="container" align="center">
+    <div class="row">
+            <form role="form" method='POST' action='' style="margin: 0 auto; width:400px">
+                <div class="form-group" style="margin-bottom:0px">
+                    <!--input type = "text" name = "query_string" class = "form-control" id = "query-box" placeholder = "Enter query" style = "max-width: 300px;" autofocus required-->
+                    <fieldset class="form-group" style="margin-bottom:0px">
+                        <div class="form-check" id = "form-check" style="margin-bottom:5px">
+                        </div>
+                    </fieldset>
+               </div>
+                <button type="submit" class="btn btn-default">Render Map</button>
+            </form>
+    </div>
+</div>
+<script type="text/javascript">
+        Spname = {{ splist | safe }};
+        /*text = '<label for="searchbar">Search Bar:</label>' +
+        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">';*/
+        text = '<label for="searchbar"></label>' +
+        '<select id="searchbar" style="width:400px" name="searchbar" class="form-control required"><option value="foo_sp"><b><i>Choose a different species of interest...</i></b></option>';
+        for(i = 0; i < Spname.length; i++){
+            text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
+        }
+        text += '</select>';
+        document.getElementById("form-check").innerHTML = text
+        $('select').select2({
+        });
+</script>
 <!--div class="container">
     <div class="row">
         <div class="col-md-12">

@@ -54,11 +54,61 @@ for i in range(0,len(splist)):
     name =name.lower().capitalize().replace('_',' ')
     splist[i] = name
 
+splist.sort()
+
+@app.route("/about", methods = ["GET", "POST"])
+def about():
+    return render_template("about.html")
+
 @app.route("/", methods = ["GET", "POST"])
 def index():
     if request.method == "POST":
         print("\n------")
         print("POST request in index")
+        print("------\n")
+
+        if request.form['searchbar']:
+
+            try:
+                req_raw = request.form['searchbar'] #change all values in index.html into species names instead of abbrreviation
+
+                if req_raw == "foo_sp":
+                    flash("Please pick a species to render the map page.")
+                    return redirect(request.url)
+
+                req_raw = req_raw.lower()
+                init_zoom = 3
+                init_lat = 42.9077121476637
+                init_long = -103.78906354308131
+                data_name = "Global Parasite Distributions"
+                pearl_sp = req_raw.replace(' ','_')
+                prop_name = req_raw.capitalize()
+                sub_name = ""
+                obj_show = {
+                    "pearl_sp" : pearl_sp,
+                    "prop_name" : prop_name,
+                    "sub_name" : sub_name,
+                    "data_name" : data_name,
+                    "init_zoom" : init_zoom,
+                    "init_lat" : init_lat,
+                    "init_long" : init_long
+                }
+                spfilename = req_raw.upper().replace(' ','_')
+                pathName = "./static/csv/pearl_sp/" + spfilename + "_pearldata.csv"
+                obj_sp = get_csv(csv_path = pathName)
+                return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp, splist = splist)
+
+            except:
+                flash("Bad query - could not interpret.")
+                return redirect(request.url)
+
+    return render_template("index.html", splist = splist)
+
+@app.route("/pearl_map", methods = ["GET", "POST"])
+def pearl_map():
+    if request.method == "POST":
+        print("\n------")
+        print("POST request in pearl_map")
         print("------\n")
 
         if request.form['searchbar']:
@@ -90,40 +140,13 @@ def index():
                 spfilename = req_raw.upper().replace(' ','_')
                 pathName = "./static/csv/pearl_sp/" + spfilename + "_pearldata.csv"
                 obj_sp = get_csv(csv_path = pathName)
-                return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp)
+                return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp, splist = splist)
 
             except:
                 flash("Bad query - could not interpret.")
                 return redirect(request.url)
 
-    return render_template("index.html")
-
-@app.route("/pearl_map", methods = ["GET", "POST"])
-def pearl_map():
-
-    if request.method == "POST":
-        print("\n------")
-        print("POST request in pearl_map")
-        print("------\n")
-
-    init_zoom = 3
-    init_lat = 11.252725743861603
-    init_long = -0.005242086131886481
-    data_name = "Global Parasite Distributions"
-    pearl_sp = "abbreviata_bancrofti"
-    prop_name = "Abbreviata bancrofti"
-    obj_show = {
-        "pearl_sp" : pearl_sp,
-        "prop_name" : prop_name,
-        "data_name" : data_name,
-        "init_zoom" : init_zoom,
-        "init_lat" : init_lat,
-        "init_long" : init_long
-    }
-    ## Pull in PEARL metadata
-    obj_meta = get_csv(csv_path = "./static/csv/pearl_data_summary.csv")
-    obj_sp = get_csv(csv_path = "./static/csv/pearl_sp/ABBREVIATA_BANCROFTI.csv")
-    return render_template("pearl_map.html", obj_show = obj_show, obj_meta = obj_meta, obj_sp = obj_sp)
+    return render_template("pearl_map.html", splist = splist)
 
 @app.route("/<pedon_key>/")
 def point_page(pedon_key):

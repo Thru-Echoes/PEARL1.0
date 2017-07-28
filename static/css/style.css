@@ -36,11 +36,24 @@ h2 {
 
 #select2-search-bar-container {
     border-style: solid;
-    border-color: green;
+    border-color: black;
 }
 
-.select2-container {
-    background-color: rebeccapurple; 
+.select2-container--default .select2-selection--single {
+     
+    border-style: none;
+    border-bottom: solid black;
+}
+ .select2-container--default .select2-selection--single {
+    border-radius:0px;
+    }   
+.select2-container #searchbar{
+    height: 60px;
+    overflow: scroll;
+} 
+
+#searchbar{
+    background-color: green;
 }
 
 /*********************************************
@@ -222,6 +235,12 @@ h2 {
     border-radius: 10px;
 }
 
+hr {
+    margin-top:-0.5rem;
+    margin-bottom: 0.5rem;
+    border-color: white;
+}
+
 /*********************************************
 * Leaflet map - custom positions
 *********************************************/
@@ -350,12 +369,10 @@ h2 {
 .pearl_info {
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
-    background: white;
-    background: rgba(255,255,255,0.8);
+    background: rgba(10,10,10,0.7);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
-    width: 400px;
-    height: 700px;
+    width: 166px;
 }
 .pearl_info h4 {
     margin: 0 0 5px;
@@ -365,16 +382,27 @@ h2 {
     padding: 6px 8px;
     font: 14px/16px Arial, Helvetica, sans-serif;
     background: white;
-    background: rgba(255,255,255,0.8);
+    background: rgba(10,10,10,0.7);
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
-    width: 410px;
-    height: 67px;
+    width: 298px;
+    height: 50px;
 }
 .loc_info h4 {
     margin: 0 0 2px;
     color: #777;
 }
+table {
+    border-collapse: collapse;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+}
+#latlong th, td{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 /*************************************************
 ********************* FOOTER *********************
 *************************************************/

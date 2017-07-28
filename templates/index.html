@@ -16,21 +16,34 @@
     <div id="menu">
         <nav>
             <ul>
-                <li><a href="{{ url_for('index') }}">About</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
                 <li><a href="{{ url_for('index') }}">Home</a></li>
                 <li><a href="{{ url_for('index') }}">FAQ</a></li>
             </br>
             </ul>
         </nav>
-    </div
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 style="text-align: center; font-size: 700%; padding-top: 100px; padding-bottom: 50px;">PEARL</h1>
+                <h1 style="text-align: center; font-size: 700%; padding-top: 50px; padding-bottom: 40px;">PEARL</h1>
+                    <div class="container" align="center">
+                        <div class="row">
+                                <form role="form" method='POST' action='' style="margin: 0 auto; width:310px">
+                                    <div class="form-group" style="margin-bottom:0px">
+                                        <!--input type = "text" name = "query_string" class = "form-control" id = "query-box" placeholder = "Enter query" style = "max-width: 300px;" autofocus required-->
+                                        <fieldset class="form-group" style="margin-bottom:0px">
+                                            <div class="form-check" id = "form-check" style="margin-bottom:5px">
+                                            </div>
+                                        </fieldset>
+                                   </div>
+                                    <button type="submit" class="btn btn-default">Render Map</button>
+                                </form>
+                        </div>
+                    </div>
                 <h2 style="text-align: center;">
                     The Parasite Extinction Assessment and Red List
                 </h2>
-                <br>
                 <h3 style="text-align: center;">
                     <em>The world's first parasite conservation database</em>
                 </h3>
@@ -39,6 +52,9 @@
             </div>
         </div>
     </div>
+
+
+</div>
     <div class="container" id="search" style="text-align: center"></div>
 
     <!--div id="search" style="text-align:center"></div>
@@ -65,54 +81,15 @@
 
 
     <div id="push-index-bottom1" style="height: 120px"></div>
-    <div class="container-fluid" style="background-color: rgba(238, 238, 238, 0.75)">
-        <div id="push-index-bottom2" style="height: 100px"></div>
-        <div class="row">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <form role="form" method='POST' action=''>
-                                    <div class="form-group">
-                                        <!--input type = "text" name = "query_string" class = "form-control" id = "query-box" placeholder = "Enter query" style = "max-width: 300px;" autofocus required-->
-                                        <fieldset class="form-group">
-                                            <legend>Example Species to Use:</legend>
-                                            <div class="form-check" id = "form-check">
-                                            </div>
-                                        </fieldset>
-
-                                   </div>
-                                    <button type="submit" class="btn btn-default">Render Map</button>
-                                </form>
-                            </div>
-                            <div class="col-md-6">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <h3><em>Coming soon / beta mode functionality:</em></h3>
-                        <br>
-                        <ol>
-                            <li><p><a href="/get_calc">Ask simple math</a></p></li>
-                            <li><p>Go to file upload page</p></li>
-                            <li><p>Time range based on <i>Bootstrap sliders</i></p></li>
-                            <li><p>Render map from backend based on user query</p></li>
-                        </ol>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="push-index-bottom" style="height: 300px;"></div>
-    </div>
+    
 </div>
 <script type="text/javascript">
-        Spname = ["Zygocotyle lunata","Boe","June","July"]; //put it into json from app.py ??
+        var Spname = {{ splist| safe }};
         /*text = '<label for="searchbar">Search Bar:</label>' +
         '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">';*/
         text = '<label for="searchbar"></label>' +
-        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required"><option value="foo_sp"><b><i>Pick a species here...</i></b></option>';
+        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">' + 
+        '<option value="foo_sp"><b><i>Choose a species of interest...</i></b></option>';
         for(i = 0; i < Spname.length; i++){
             text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
         }
@@ -120,7 +97,6 @@
         text2= 'hey'
         document.getElementById("form-check").innerHTML = text
         $('select').select2({
-            theme: 'bootstrap'
         });
 </script>
 <script>

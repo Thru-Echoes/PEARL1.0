@@ -1,0 +1,11 @@
+things to do
+
+About page
+	write about importance of the project and methods in deriving templates
+	Team
+
+Index page
+	write about what it is briefly and how to use it. 
+
+Footer
+	Update design and add berkeley logo.
