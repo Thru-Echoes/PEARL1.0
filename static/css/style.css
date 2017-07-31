@@ -161,6 +161,23 @@ h2 {
     cursor: pointer;
 }
 
+
+/*********************************************
+* Stats in pearl_map
+*********************************************/
+#basicInfo {
+    text-align: center;
+}
+.Stat th,.Stat td{
+    text-align:center;
+    padding: 8px 16px 8px 16px;
+}
+
+.Stat td{
+    text-align:center;
+    font-size:200%;
+}
+
 /*********************************************
 * Leaflet map
 *********************************************/
@@ -399,12 +416,16 @@ hr {
 table {
     border-collapse: collapse;
     background-color: transparent;
-    color: white;
+    color: black;
     font-weight: bold;
 }
-#latlong th, td{
+#model-table th, #model-table td{
+    color:white;
+} 
+#latlong th,#latlong td{
     padding-left: 5px;
     padding-right: 5px;
+    color: white;
 }
 
 /*************************************************

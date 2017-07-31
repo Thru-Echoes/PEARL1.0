@@ -47,14 +47,24 @@ makePathExist('static/db')
 ## Setup Middleware / routes to each web page
 
 #get species names
-splist = os.listdir('./static/csv/pearl_sp')
-pattern = '[A-Z]+.+[A-Z]'
-for i in range(0,len(splist)):
-    name = re.findall(pattern,splist[i])[0]
-    name =name.lower().capitalize().replace('_',' ')
-    splist[i] = name
+spstat = {}
+splist = []
+handle = open('./static/csv/pearl_data_summary_full.csv')
+for line in handle:
+    data = line.strip().split(',')
+    id, sn, clade, iucn, quality, certainty, source, ln, pn, tss, auc, tssr, aucr = data
+    if type(tss) == float:
+        tss = round(tss,2)
+    if type(auc) == float:
+        auc = round(auc,2)
+    spstat[pn] =  [clade, source, tss, auc, quality, certainty, iucn] #order
+    pn2 = pn.replace('_',' ')
+    splist.append(pn2)
 
-splist.sort()
+splist = splist[1::]
+handle.close()
+
+print(spstat)
 
 @app.route("/about", methods = ["GET", "POST"])
 def about():
@@ -68,10 +78,8 @@ def index():
         print("------\n")
 
         if request.form['searchbar']:
-
             try:
                 req_raw = request.form['searchbar'] #change all values in index.html into species names instead of abbrreviation
-
                 if req_raw == "foo_sp":
                     flash("Please pick a species to render the map page.")
                     return redirect(request.url)
@@ -82,8 +90,11 @@ def index():
                 init_long = -103.78906354308131
                 data_name = "Global Parasite Distributions"
                 pearl_sp = req_raw.replace(' ','_')
+                pearl_sp2 = pearl_sp.capitalize()
                 prop_name = req_raw.capitalize()
                 sub_name = ""
+                print(pearl_sp)
+                print(prop_name)
                 obj_show = {
                     "pearl_sp" : pearl_sp,
                     "prop_name" : prop_name,
@@ -91,11 +102,20 @@ def index():
                     "data_name" : data_name,
                     "init_zoom" : init_zoom,
                     "init_lat" : init_lat,
-                    "init_long" : init_long
+                    "init_long" : init_long,
+                    "clade" : spstat[pearl_sp2][0],
+                    "source" : spstat[pearl_sp2][1],
+                    "tss" : spstat[pearl_sp2][2],
+                    "auc" : spstat[pearl_sp2][3],
+                    "quality" : spstat[pearl_sp2][4],
+                    "certainty" : spstat[pearl_sp2][5],
+                    "iucn" : spstat[pearl_sp2][6]
                 }
+                print('its good over here')
                 spfilename = req_raw.upper().replace(' ','_')
                 pathName = "./static/csv/pearl_sp/" + spfilename + "_pearldata.csv"
                 obj_sp = get_csv(csv_path = pathName)
+                print('it was successful')
                 return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp, splist = splist)
 
             except:

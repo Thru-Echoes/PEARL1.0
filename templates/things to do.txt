@@ -8,21 +8,13 @@ About page
 
 	Team
 
-About PEARL
+-About PEARL
 
-Parasites are one of the most common forms of life on Earth. Basic questions remain unanswered at the intersection of parasitology with other fields like community ecology, evolutionary ecology, and especially global change biology. With the advancement of disease ecology, a growing body of work shows that parasites are a critical part of ecosystems, acting as regulators of food webs and host populations, and serving an important role in energy flow through trophic levels. Despite the increasingly apparent benefits of parasites, they are often neglected in conservation, especially when parasitic life cycle is known to be particularly extinction-prone due to cascading co-extinctions with hosts. Institutions like IUCN have spent decades developing frameworks for conservation of biodiversity, but parasites are rarely included. 
+-Data Collection
 
-The open data in parasitology is still comparatively limited, and only in the last few years have major sources such as the U.S. National Parasite Collection, Global Mammal Parasite Database, or London Host-Parasite Collection Database released spatial data that are fundamental to conservation assessments. For parasite conservation to be a valid and serious part of conservation biology, there must be at least one detailed and dedicated bioinformatic repositroy for the express purpose of centralizing data on population trends, extinction risk, distributions, and conservation efforts. Rather than wait for such an assessment to be integrated into the work of funding and time limited institutions like the IUCN, we present the first full version of the <b>Parasite Extinction Assessment & Red List(PEARL) </b>, the first standalone global parasite conservation assessment.
+-Species Distribution Mapping methods.
 
-Parasite Extinction Assessment & Red List (PEARL) <i> version 1.0 </i> is a recent release of open-source database of conservation assessments and distributional data for almost 500 macroparasitic invertebrates. PEARL is desinged as a conservation tool, but it can more broadly act as infrastructure for data on host-parasite relationships and projected range shifts in a changing climate. PEARL also exemplifies a new template for maintaining transparent model descriptors as part of conservation databases, and will be updated in the future with new groundbreaking functionalities like automated assessment and relisting.
-
-Data Collection
-
-Species Distribution Mapping
-methods.
-
-
-PEARL Team
+-PEARL Team
 
 
 
@@ -36,8 +28,8 @@ Index page
 	world map background 
 
 Footer
-	Update design and add berkeley logo. (espm,cal,ntres,smithsonian museum of natural history,S.C.Design and Analytics)
-	"This website was a collaborative work of Zhongqi Miao, Oliver Muellerklein, and Honeysuckle Yoon from Getz Lab" Address, number
+	Update design and add berkeley logo. (espm,cal,ntres,smithsonian museum of natural history,S.C.Design and Analytics){5}
+	"This website is a collaborative work of Zhongqi Miao, Oliver Muellerklein, and Honeysuckle Yoon from Getz Lab" Address, number
 
 FAQ
 
@@ -45,3 +37,12 @@ FAQ
 
 PEARL (Parasite Extinction Assessment and Red List) is the world's first parasite conservation database. The database holds species distribution for over 450+ parasite species and their 
 distribution projections under different future climate scenarios. Type in a species of interest to see the conservation assessment information of the species.
+
+
+
+
+Parasites are one of the most common forms of life on Earth. Basic questions remain unanswered at the intersection of parasitology with other fields like community ecology, evolutionary ecology, and especially global change biology. With the advancement of disease ecology, a growing body of work shows that parasites are a critical part of ecosystems, acting as regulators of food webs and host populations, and serving an important role in energy flow through trophic levels. Despite the increasingly apparent benefits of parasites, they are often neglected in conservation, especially when parasitic life cycle is known to be particularly extinction-prone due to cascading co-extinctions with hosts. Institutions like IUCN have spent decades developing frameworks for conservation of biodiversity, but parasites are rarely included. 
+
+The open data in parasitology is still comparatively limited, and only in the last few years have major sources such as the U.S. National Parasite Collection, Global Mammal Parasite Database, or London Host-Parasite Collection Database released spatial data that are fundamental to conservation assessments. For parasite conservation to be a valid and serious part of conservation biology, there must be at least one detailed and dedicated bioinformatic repositroy for the express purpose of centralizing data on population trends, extinction risk, distributions, and conservation efforts. Rather than wait for such an assessment to be integrated into the work of funding and time limited institutions like the IUCN, we present the first full version of the <b>Parasite Extinction Assessment & Red List(PEARL) </b>, the first standalone global parasite conservation assessment.
+
+Parasite Extinction Assessment & Red List (PEARL) <i> version 1.0 </i> is a recent release of open-source database of conservation assessments and distributional data for almost 500 macroparasitic invertebrates. PEARL is desinged as a conservation tool, but it can more broadly act as infrastructure for data on host-parasite relationships and projected range shifts in a changing climate. PEARL also exemplifies a new template for maintaining transparent model descriptors as part of conservation databases, and will be updated in the future with new groundbreaking functionalities like automated assessment and relisting.
