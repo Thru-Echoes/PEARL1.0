@@ -39,7 +39,8 @@
       <div class=flash>{{ message }}</div>
     {% endfor %}
     {% block menu %}
-    <div class="wrapper" style="height:100%;">
+    <div class="wrapper">
+    <div class="background">
         <div style="height:20px;"></div>
         <div id="menu">
         <nav>
@@ -57,7 +58,7 @@
     {% block footer %}
     <footer class="footer">
         <div class="container">
-            <p class="footer-text" style="text-align:center;">This website is a collaborative work of Zhongqi Miao, Oliver Muellerklein, and Honeysuckle Yoon from Getz Lab. All rights reserved | Lab:VLSB 5048-B | T: 510-643-1227 | email: wgetz@berkeley.edu </p>
+            <p class="footer-text" style="text-align:center;">This website is a collaborative work of Zhongqi Miao, Oliver Muellerklein, Colin Carlson and Honeysuckle Yoon from Getz Lab. All rights reserved | Lab:VLSB 5048-B | T: 510-643-1227 | email: wgetz@berkeley.edu </p>
             <div class="row">
                 <div class="col-md-2">
                     <a href="http://www.berkeley.edu/">
@@ -84,9 +85,10 @@
                     </a>
                 </div>
             </div>
-            <div class="push" style="height:10px;"
+            <div class="push" style="height:10px;">
         </div>
     </footer>
+    </div>
     </div>
     {% endblock %}
 </body>

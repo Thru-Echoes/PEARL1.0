@@ -46,7 +46,8 @@ makePathExist('static/db')
 
 ## Setup Middleware / routes to each web page
 
-#get species names
+#get species names and metadata
+
 spstat = {}
 splist = []
 handle = open('./static/csv/pearl_data_summary_full.csv')
@@ -63,8 +64,6 @@ for line in handle:
 
 splist = splist[1::]
 handle.close()
-
-print(spstat)
 
 @app.route("/about", methods = ["GET", "POST"])
 def about():
@@ -93,8 +92,6 @@ def index():
                 pearl_sp2 = pearl_sp.capitalize()
                 prop_name = req_raw.capitalize()
                 sub_name = ""
-                print(pearl_sp)
-                print(prop_name)
                 obj_show = {
                     "pearl_sp" : pearl_sp,
                     "prop_name" : prop_name,
@@ -111,7 +108,7 @@ def index():
                     "certainty" : spstat[pearl_sp2][5],
                     "iucn" : spstat[pearl_sp2][6]
                 }
-                print('its good over here')
+
                 spfilename = req_raw.upper().replace(' ','_')
                 pathName = "./static/csv/pearl_sp/" + spfilename + "_pearldata.csv"
                 obj_sp = get_csv(csv_path = pathName)

@@ -25,6 +25,28 @@ h2 {
     font-size: 1.2em;
 }
 */
+/*********************************************
+* Background
+*********************************************/
+.wrapper{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+}
+.background{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(26,26,26,0.8),rgba(26,26,26,0.8)),url('https://mail.google.com/mail/u/0/?ui=2&ik=cb02479a36&view=fimg&th=15da493df4740e9b&attid=0.1&disp=emb&realattid=ii_15da493a0c1adaba&attbid=ANGjdJ8LgcUh3cQauvzfUc5s-hUclmhg932eK_Auz6hC2qNwGpfPMpxXCJqXzIkCq4QcNLveSFzvuHVCsQvKhqba3ysjdaMYBEW-P6ytCvsQtsjUBkQybP0csy_fsrk&sz=w766-h1088&ats=1501705556863&rm=15da493df4740e9b&zw&atsh=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+}
+.container-fluid{
+    background: rgba(255,255,255,0);
+}
 
 /*********************************************
 * Select2 + home page CSS
@@ -171,13 +193,21 @@ h2 {
 .Stat th,.Stat td{
     text-align:center;
     padding: 8px 16px 8px 16px;
+    font-weight: 100;
 }
-
+.Stat th h2{
+    font-size: 300%;
+}
 .Stat td{
-    text-align:center;
-    font-size:200%;
+    font-size: 80%;
 }
+.Stat0 th, .Stat0 td{
+    text-align:center;
+    padding: 0 0 0 0;
+}
+.Stat0 th{
 
+}
 /*********************************************
 * Leaflet map
 *********************************************/
@@ -492,4 +522,11 @@ table {
     box-shadow:5px 5px 5px #888888;
     width: 200px;
     height: 200px;
+}
+
+.team h2{
+    margin-bottom:80px;
+}
+.team-cat .row{
+    margin-bottom:30px;
 }

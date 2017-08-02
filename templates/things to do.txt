@@ -15,23 +15,64 @@ About page
 -Species Distribution Mapping methods.
 
 -PEARL Team
+Dr. Veronica Bueno
+Dr. Kevin Burgio
+Colin Carlson
+Giovanni Castaldo
+Dr. Carrie Cizauskas
+Dr. Christopher Clements
+Dr. Graeme Cumming
+Dr. Tad Dallas
+Dr. Jorge Doña
+Eric Dougherty
+Sarah Fourby
+Dr. Wayne Getz
+Dr. Nyeema Harris
+Dr. Roger Jovani
+Zhongqi MIao
+Dr. Sergei Mironov
+Oliver Muellerklein
+Dr. Anna J. Phillips
+Dr. Heather Proctor
+Hyun Seok Yoon
 
 
-
-
-
+FONT CHANGE
 
 pearl_map page
-	the meta data
+	the meta data:
+		add iucn red listing, clade, and 
+		Information about each stat when you put on the cursor.
 
 Index page
-	world map background 
-
+	world map background
 Footer
-	Update design and add berkeley logo. (espm,cal,ntres,smithsonian museum of natural history,S.C.Design and Analytics){5}
-	"This website is a collaborative work of Zhongqi Miao, Oliver Muellerklein, and Honeysuckle Yoon from Getz Lab" Address, number
 
-FAQ
+Collins feedback:
+team publication button (left); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
