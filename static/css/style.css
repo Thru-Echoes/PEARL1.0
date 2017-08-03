@@ -3,28 +3,16 @@
 * Core CSS
 *********************************************/
 
-/*body {
+body {
     font-family: sans-serif;
-    background: #eee;
+    color: rgba(238, 238, 238, 0.9);
+    height: 100%;
 }
 
-a, h1, h2 {
-    color: #377BA8;
-
-}
-h1, h2 {
-    font-family: 'Georgia', serif;
-    margin: 0;
+html{
+    height:100%;
 }
 
-h1 {
-    border-bottom: 2px solid #eee;
-}
-
-h2 {
-    font-size: 1.2em;
-}
-*/
 /*********************************************
 * Background
 *********************************************/
@@ -46,6 +34,18 @@ h2 {
 }
 .container-fluid{
     background: rgba(255,255,255,0);
+}
+
+.whitebackground {
+    background-color: rgba(233,233,233,0.6);"
+}
+
+/*********************************************
+* team publication button
+*********************************************/
+.Publication{
+    border-radius:4px;
+    background-color:(234,234,234,0.85);
 }
 
 /*********************************************
@@ -196,7 +196,9 @@ h2 {
     font-weight: 100;
 }
 .Stat th h2{
+    font-weight:200px;
     font-size: 300%;
+    color: rgba(10,10,10,0.9);
 }
 .Stat td{
     font-size: 80%;
@@ -204,9 +206,7 @@ h2 {
 .Stat0 th, .Stat0 td{
     text-align:center;
     padding: 0 0 0 0;
-}
-.Stat0 th{
-
+    color:rgba(10,10,10,0.9);
 }
 /*********************************************
 * Leaflet map
@@ -458,6 +458,13 @@ table {
     color: white;
 }
 
+#dist-button{
+    color: white;
+    width: 100%;
+    background: rgba(10,10,10,0);
+    border-color: rgba(10,10,10,0);
+}
+
 /*************************************************
 ********************* FOOTER *********************
 *************************************************/
@@ -480,6 +487,7 @@ table {
     position: absolute;
     /*bottom: 0;*/
     width: 100%;
+    height: 180px;
     background-color: #333; 
     /*background-color: rgba(177, 177, 177, 0.95);*/
 }
@@ -489,6 +497,7 @@ table {
     padding-left: 15px;
 }
 
+}
 .container .footer-text {
     margin: 20px 0;
 }

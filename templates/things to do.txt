@@ -39,6 +39,11 @@ Hyun Seok Yoon
 
 FONT CHANGE
 
+Publications Page
+science
+consbio
+RSOS
+
 pearl_map page
 	the meta data:
 		add iucn red listing, clade, and 

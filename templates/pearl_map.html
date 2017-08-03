@@ -15,62 +15,66 @@
         font-style: italic;
     }
 </style>
-
 <div class="container" style="height: 30px;"></div>
-<div class="container">
-    <div class="row">
-        <div class="col-md-9">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1><b><i>{{ obj_show['prop_name'] }}</i></b></h1>
+<div class="whitebackground" style="margin: 0px 20px 0px 20px; border-radius:30px; color:rgba(10,10,10,0.9);">
+    <div class="container" style="height: 20px;"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1><b><i>{{ obj_show['prop_name'] }}</i></b></h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4><b>{{ obj_show['clade'] }}</b></h4>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>Source: <b>{{ obj_show['source'] }}</b></h4>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <h3><b>{{ obj_show['clade'] }}</b></h3>
-                </div>
-                <div class="col-md-8">
-                    <h3>Source: <b>{{ obj_show['source'] }}</b></h3>
-                </div>
+            <div class="col-md-3">
+                <table class="Stat0">
+                    <tr>
+                        <th><h1>{{ obj_show['iucn'] }}</h1></th>
+                    </tr>
+                    <tr>
+                        <td>Suggested IUCN Red Listing</td>
+                    </tr>
+                </table>
             </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-3">
-            <table class="Stat0">
+
+        <div class="container" style="height: 20px;"></div>
+
+        <div class="row">
+            <table class="Stat" style="margin: auto;">
                 <tr>
-                    <th><h1>{{ obj_show['iucn'] }}</h1></th>
+                    <th id="tss0"><h2>{{ obj_show['tss'] }}</h2></th>
+                    <th id="roc0"><h2>{{ obj_show['auc'] }}</h2></th>
+                    <th><h2>{{ obj_show['quality'] }}</h2></th>
+                    <th><h2>{{ obj_show['certainty'] }}</h2></th>
                 </tr>
                 <tr>
-                    <td>Suggested IUCN Red Listing</td>
+                    <td>True Skill Statistic</td>
+                    <td>Area Under Curve</td>
+                    <td>Data Quality</td>
+                    <td>Model Uncertainty</td>
                 </tr>
+                
             </table>
         </div>
+        <div style="height: 40px;"></div>
     </div>
-
-    <div class="container" style="height: 40px;"></div>
-
-    <div class="row">
-        <table class="Stat" style="margin: auto;">
-            <tr>
-                <th id="tss0"><h2>{{ obj_show['tss'] }}</h2></th>
-                <th id="roc0"><h2>{{ obj_show['auc'] }}</h2></th>
-                <th><h2>{{ obj_show['quality'] }}</h2></th>
-                <th><h2>{{ obj_show['certainty'] }}</h2></th>
-            </tr>
-            <tr>
-                <td>True Skill Statistic</td>
-                <td>Area Under Curve</td>
-                <td>Data Quality</td>
-                <td>Model Uncertainty</td>
-            </tr>
-            
-        </table>
-    </div>
-    <div style="height: 100px;"></div>
 </div>
-
-<div id="push-before-map" style="height: 10px;"></div>
-<div class="container-fluid" id="map-container" style="width: 85%; margin: 0 auto;">
-    <div id="map-id" style="width:100%;"></div>
+<div id="push-before-map" style="height: 20px;"></div>
+<div class="container-fluid" id="map-container" style="width: 92.5%; margin: 0 auto;">
+    <h2> Distribution Map </h2>
+    <div id="map-id" style="width:100%; height: 700px;"></div>
     <!--script src="./static/js/HeatLayer.js"></script>
     <script src="./static/js/leaflet-heat.js"></script-->
     <script src="./static/js/map-util.js"></script>
@@ -225,7 +229,6 @@
         /***************************************
         * Set controls over map
         ***************************************/
-
         var pearl_info = L.control({position: 'bottomleft'});
         pearl_info.onAdd = function(map) {
             this._div = L.DomUtil.create('div', 'pearl_info');
@@ -233,26 +236,29 @@
             return this._div;
         };
         pearl_info.pearl_update = function(props) {
-
             text = ''
-                text += '<p style="color:white;"><b>Climate Change Scenarios</b></p><hr>' +
-                    '<div class="row"><div class="col-md-4">' +
-                    '<table id="model-table">' +
-                    '<tr>' +
-                        '<th>Model</th>' +
-                        '<th>Native Habitat Change (%)</th>' +
-                        '<th>Global Habitat Change (%)</th>' +
-                    '</tr>'
-                rgb_array =['0, 0, 255','255, 0, 0','255, 128, 0','255, 255, 0','128, 255, 0','0, 255, 0','0, 255, 128','0, 255, 255','0, 128, 255','0, 0, 255','174, 81, 198','255, 0, 255','255, 0, 127','140, 140, 140','255, 153, 153','153, 204, 255','204, 153, 255','255, 255, 153','255, 204, 204']
-                for( i=1; i<rgb_array.length; i++){
-                    text += '<tr>' +
-                    '<td id="Model'+i+'" style="color: rgb('+rgb_array[i]+')">foo'+i+'</td>' + '<td id="native_habitat_change'+i+'">native'+i+'</td>' +
-                        '<td id="global_habitat_change'+i+'">global'+i+'</td>' +
-                    '</tr>'    
-                }
-                text += '</table> </div>'
+            text += '<div id=dist>'
+            text += '<p style="color:white;"><b>Climate Change Scenarios</b></p><hr>' +
+                '<div class="row"><div class="col-md-4">' +
+                '<table id="model-table">' +
+                '<tr>' +
+                    '<th>Model</th>' +
+                    '<th>Native Habitat Change (%)</th>' +
+                    '<th>Global Habitat Change (%)</th>' +
+                '</tr>'
+            rgb_array =['0, 0, 255','255, 0, 0','255, 128, 0','255, 255, 0','128, 255, 0','0, 255, 0','0, 255, 128','0, 255, 255','0, 128, 255','0, 0, 255','174, 81, 198','255, 0, 255','255, 0, 127','140, 140, 140','255, 153, 153','153, 204, 255','204, 153, 255','255, 255, 153','255, 204, 204']
+            for( i=1; i<rgb_array.length; i++){
+                text += '<tr>' +
+                '<td id="Model'+i+'" style="color: rgb('+rgb_array[i]+')">foo'+i+'</td>' + '<td id="native_habitat_change'+i+'">native'+i+'</td>' +
+                    '<td id="global_habitat_change'+i+'">global'+i+'</td>' +
+                '</tr>'    
+            }
+            text += '</table>'+'</div></div>'
+            text += '</div>' + '<button id="dist-button">I like bananas</button>'
+
                 this._div.innerHTML = text;
         };
+
 
         pearl_info.addTo(map);
 
@@ -281,8 +287,8 @@
                 '<th><b>Long.</b></th>' +
                 '</tr>' +
                 '<tr>' +
-                '<td>'+init_lat+'</td>' +
-                '<td>'+init_long+'</td>' +
+                '<td id="curr_lat"></td>' +
+                '<td id="curr_long"></td>' +
                 '</tr>' +
                 '</table>';
         };
@@ -305,25 +311,25 @@
         var heat = L.heatLayer(point_data_heat, {radius: 25});*/
 
         var overlaymaps = {
-            "Pearl: Current": tile_current,
-            "Pearl: AC 4.5": tile_ac45,
-            "Pearl: AC 8.5": tile_ac85,
-            "Pearl: BC 2.6": tile_bc26,
-            "Pearl: BC 4.5": tile_bc45,
-            "Pearl: BC 6.0": tile_bc60,
-            "Pearl: BC 8.5": tile_bc85,
-            "Pearl: CC 2.6": tile_cc26,
-            "Pearl: CC 4.5": tile_cc45,
-            "Pearl: CC 6.0": tile_cc60,
-            "Pearl: CC 8.5": tile_cc85,
-            "Pearl: HD 2.6": tile_hd26,
-            "Pearl: HD 4.5": tile_hd45,
-            "Pearl: HD 6.0": tile_hd60,
-            "Pearl: HD 8.5": tile_hd85,
-            "Pearl: HE 2.6": tile_he26,
-            "Pearl: HE 4.5": tile_he45,
-            "Pearl: HE 6.0": tile_he60,
-            "Pearl: HE 8.5": tile_he85
+            "Current": tile_current,
+            "AC 4.5": tile_ac45,
+            "AC 8.5": tile_ac85,
+            "BC 2.6": tile_bc26,
+            "BC 4.5": tile_bc45,
+            "BC 6.0": tile_bc60,
+            "BC 8.5": tile_bc85,
+            "CC 2.6": tile_cc26,
+            "CC 4.5": tile_cc45,
+            "CC 6.0": tile_cc60,
+            "CC 8.5": tile_cc85,
+            "HD 2.6": tile_hd26,
+            "HD 4.5": tile_hd45,
+            "HD 6.0": tile_hd60,
+            "HD 8.5": tile_hd85,
+            "HE 2.6": tile_he26,
+            "HE 4.5": tile_he45,
+            "HE 6.0": tile_he60,
+            "HE 8.5": tile_he85
         };
         L.control.layers(basemaps, overlaymaps, {collpased: false}).addTo(map);
 
@@ -398,6 +404,14 @@
             /* Pearl HE 8.5 */
             var he85_box = $(".leaflet-control-layers-overlays > label > div > input")[18];
         });
+    </script>
+    <script> //for the toggle on the map
+    $(document).ready(function() {
+        $('#dist').hide();
+        $('#dist-button').on('click', function() {
+            $('#dist').toggle();
+        });
+    })
     </script>
 </div>
 <div id="push-pearl-postmap" style="height: 50px;"></div>
