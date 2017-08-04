@@ -69,6 +69,10 @@ handle.close()
 def about():
     return render_template("about.html")
 
+@app.route("/pub",methods = ["GET","POST"])
+def pub():
+    return render_template("pub.html")
+
 @app.route("/", methods = ["GET", "POST"])
 def index():
     if request.method == "POST":
