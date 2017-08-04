@@ -13,6 +13,11 @@
 	</br>
 	<h3>Niche Modeling </h3>
 	</br>
+	<div class="row">
+		<div class="col-md-12">
+			<img src="{{ url_for('static', filename='img/wayne.jpg') }}">
+		</div>
+	</div>
 	<div id="team" name="team"></div>
 	<script type="text/javascript">
 		people = ['Dr. Veronica Bueno','Dr. Kevin Burgio','Colin Carlson','Giovanni Castaldo','Dr. Carrie Cizauskas','Dr. Christopher Clements','Dr. Graeme Cumming','Dr. Tad Dallas','Dr. Jorge Doña','Eric Dougherty','Sarah Fourby','Dr. Wayne Getz','Dr. Nyeema Harris','Dr. Roger Jovani','Zhongqi Miao','Dr. Sergei Mironov','Oliver Muellerklein','Dr. Anna J. Phillips','Dr. Heather Proctor','Hyun Seok Yoon'];
@@ -24,7 +29,7 @@
 			text += '<div class="row">'
 					for(j=0; j<3;j++){
 					text += '<div calss="col-md-4" style="margin:auto;">'+
-						'<img src="img/spiderman.jpg" class="img-circle" alt="Cinque Terre">'+
+						'<img src="static/img/wayne.jpg" class="img-circle" alt="Cinque Terre">'+
 						'<p class="team-member"><b>'+ people[k] +'</b></p>'+
 					'</div>';
 					k+=1;
@@ -33,11 +38,11 @@
 		}
 		text+= '<div class="row">'+
 			'<div calss="col-md-6" style="margin:auto;">'+
-				'<img src="img/spiderman.jpg" class="img-circle" alt="Cinque Terre">'+
+				'<img src="static/img/wayne.jpg" class="img-circle" alt="Cinque Terre">'+
 				'<p class="team-member"><b>'+ people[k] +'</b></p>'+
 			'</div>'+
 			'<div calss="col-md-6" style="margin:auto;">'+
-			'<img src="img/spiderman.jpg" class="img-circle" alt="Cinque Terre">'+
+			'<img src="static/img/wayne.jpg" class="img-circle" alt="Cinque Terre">'+
 			'<p class="team-member"><b>'+ people[k+1] +'</b></p>'+
 			'</div>'+
 		'</div>'
