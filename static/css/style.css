@@ -10,7 +10,8 @@ body {
 }
 
 html{
-    height:100%;
+    position: relative;
+    min-height:100%;
 }
 
 /*********************************************
@@ -487,7 +488,7 @@ table {
     position: absolute;
     /*bottom: 0;*/
     width: 100%;
-    height: 180px;
+    height: 200px;
     background-color: #333; 
     /*background-color: rgba(177, 177, 177, 0.95);*/
 }
@@ -497,7 +498,6 @@ table {
     padding-left: 15px;
 }
 
-}
 .container .footer-text {
     margin: 20px 0;
 }
@@ -515,7 +515,6 @@ table {
 
 .pub {
     margin: 40px;
-    
 }
 
 /*************************************************
@@ -545,6 +544,7 @@ table {
 .team h2{
     margin-bottom:80px;
 }
+
 .team-cat .row{
     margin-bottom:30px;
 }

@@ -1,18 +1,19 @@
 things to do
 
 About page
+	Image
 
-	write about importance of the project and methods in deriving templates. 
 
-	where we retreived the data.
+Publications Page
+	Carousel:
+		science
+		consbio
+		RSOS
 
-	Team
 
--About PEARL
+pearl_map page
+	Tool tip: Information about each stat when you put on the cursor.
 
--Data Collection
-
--Species Distribution Mapping methods.
 
 -PEARL Team
 Dr. Veronica Bueno
@@ -35,28 +36,7 @@ Oliver Muellerklein
 Dr. Anna J. Phillips
 Dr. Heather Proctor
 Hyun Seok Yoon
-
-
-FONT CHANGE
-
-Publications Page
-science
-consbio
-RSOS
-
-pearl_map page
-	the meta data:
-		add iucn red listing, clade, and 
-		Information about each stat when you put on the cursor.
-
-Index page
-	world map background
-Footer
-
-Collins feedback:
-team publication button (left); 
-
-
+(Zach Poulin)
 
 
 

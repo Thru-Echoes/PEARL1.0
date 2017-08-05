@@ -1,5 +1,20 @@
 {% extends "nav_layout.html" %}
 {% block body %}
+{% block menu %}
+    <div class="wrapper" style="height: 290%;">
+    <div class="background">
+        <div style="height:20px;"></div>
+        <div id="menu">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('pub') }}">Publications</a></li>
+            </br>
+            </ul>
+        </nav>
+        </div>{% endblock %}
+
 <style type="text/css">
     .ctl {
         padding: 2px 10px 2px 10px;
@@ -19,6 +34,11 @@
 <div class="whitebackground" style="margin: 0px 20px 0px 20px; border-radius:30px; color:rgba(10,10,10,0.9);">
     <div class="container" style="height: 20px;"></div>
     <div class="container">
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();   
+        });
+    </script>
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-7">
@@ -39,7 +59,11 @@
             <div class="col-md-3">
                 <table class="Stat0">
                     <tr>
-                        <th><h1>{{ obj_show['iucn'] }}</h1></th>
+                        <th>
+                            <div class="cstatus-box" data-toggle="tooltip" data-placement="bottom" data-original-title="IUCN categories used in our assessment are least concern (LC), vulnerable (VU), endangered (EN), and critically endangered (CR).">
+                                <h1>{{ obj_show['iucn'] }}</h1>
+                            </div>
+                        </th>
                     </tr>
                     <tr>
                         <td>Suggested IUCN Red Listing</td>
@@ -54,10 +78,26 @@
         <div class="row">
             <table class="Stat" style="margin: auto;">
                 <tr>
-                    <th id="tss0"><h2>{{ obj_show['tss'] }}</h2></th>
-                    <th id="roc0"><h2>{{ obj_show['auc'] }}</h2></th>
-                    <th><h2>{{ obj_show['quality'] }}</h2></th>
-                    <th><h2>{{ obj_show['certainty'] }}</h2></th>
+                    <th id="tss0">
+                        <div class="cstatus-box" data-toggle="tooltip" data-placement="top" data-original-title="The Hanssen-Kuiper Skill statistic or true skill statistic ranges from -1 to +1, where 0 represents no skill, and is (sensitivity + specificity - 1).">
+                            <h2>{{ obj_show['tss'] }}</h2>
+                        </div>
+                    </th>
+                    <th id="roc0">
+                        <div class="cstatus-box" data-toggle="tooltip" data-placement="top" data-original-title="The AUC is the area under the receiver-operating characteristic curve which compares correct and false positive rates with different cutoffs, and ranges from 0 to 1.">
+                            <h2>{{ obj_show['auc'] }}</h2>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="cstatus-box" data-toggle="tooltip" data-placement="top" data-original-title="The number of points used in niche models is classified by quantile from the entire sample of species in the study, as: fair (0-25%), average (25-50%), good (50-75%) or excellent (75-100%).">
+                            <h2>{{ obj_show['quality'] }}</h2>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="cstatus-box" data-toggle="tooltip" data-placement="top" data-original-title="The average uncertainty radius of points used to generate niche models is classified by quantile from the entire sample of species in the study, as: fair (0-25%), average (25-50%), good (50-75%) or excellent (75-100%).">
+                            <h2>{{ obj_show['certainty'] }}</h2>
+                        </div>
+                    </th>
                 </tr>
                 <tr>
                     <td>True Skill Statistic</td>
@@ -242,8 +282,16 @@
                 '<table id="model-table">' +
                 '<tr>' +
                     '<th>Model</th>' +
-                    '<th>Native Habitat Change (%)</th>' +
-                    '<th>Global Habitat Change (%)</th>' +
+                    '<th>'+
+                        '<div class="cstatus-box" data-toggle="tooltip" data-placement="top" data-original-title="The Hanssen-Kuiper Skill statistic or true skill statistic ranges from -1 to +1, where 0 represents no skill, and is (sensitivity + specificity - 1).">'+
+                            '<p>Native Habitat Change (%)</p>'+
+                        '</div>'+
+                    '</th>' +
+                    '<th>'+
+                        '<div class="cstatus-box" data-toggle="tooltip" data-placement="top" data-original-title="The Hanssen-Kuiper Skill statistic or true skill statistic ranges from -1 to +1, where 0 represents no skill, and is (sensitivity + specificity - 1).">'+
+                            '<p>Global Habitat Change (%)</p>'+
+                        '</div>'+
+                    '</th>' +
                 '</tr>'
             rgb_array =['0, 0, 255','255, 0, 0','255, 128, 0','255, 255, 0','128, 255, 0','0, 255, 0','0, 255, 128','0, 255, 255','0, 128, 255','0, 0, 255','174, 81, 198','255, 0, 255','255, 0, 127','140, 140, 140','255, 153, 153','153, 204, 255','204, 153, 255','255, 255, 153','255, 204, 204']
             for( i=1; i<rgb_array.length; i++){
@@ -443,6 +491,7 @@
         $('select').select2({
         });
 </script>
+
 <!--div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -469,4 +518,42 @@
 </div-->
 
 <div id="push-index-bottom" style="height: 100px;"></div>
+<!-- FOOTER -->
+    {% block footer %}
+    <footer class="footer">
+        <div class="container">
+            </br>
+            <p class="footer-text" style="text-align:center;">This website is a collaborative work of Zhongqi Miao, Oliver Muellerklein, Colin Carlson and Honeysuckle Yoon from <a href="https://nature.berkeley.edu/getzlab/">Getz Lab</a>. All rights reserved | Lab Location:VLSB 5048-B </p>
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="http://www.berkeley.edu/">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/California_Golden_Bears_logo.svg/2000px-California_Golden_Bears_logo.svg.png" alt="UCBerkeley" width="50" height="50">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="https://ourenvironment.berkeley.edu/">
+                    <img src="http://microtsudentgroup.weebly.com/uploads/1/0/9/2/10929232/espm-logo.png" alt="ESPM" width="50" height="50">
+                    </a>
+                </div>
+                <div class="col-md-2" style="margin-right:120px;">
+                    <a href="https://nature.berkeley.edu/">
+                    <img src="https://nature.berkeley.edu/sites/all/themes/cnr/cnr_logo_blue_640.png" alt="NTRES" width="200" height="50">
+                </div>
+                <div class="col-md-2">
+                    <a href="https://naturalhistory.si.edu/">
+                    <img src="https://asiloidflies.si.edu/sites/all/themes/nmnh_asiloid_flies_omega/images/si_logo_small_new.png" alt="Smithsonian" width="50" height="50">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                    <img src="" alt="S.C.design and Analytics" width="50" height="50">
+                    </a>
+                </div>
+            </div>
+            <div class="push" style="height:10px;">
+        </div>
+    </footer>
+    </div>
+    </div>
+    {% endblock %}
 {% endblock %}
