@@ -1,26 +1,9 @@
 {% extends "nav_layout.html" %}
 
 {% block body %}
-{% block menu %}
-    <div class="wrapper" style="height: 150%;">
-    <div class="background">
-        <div style="height:20px;"></div>
-        <div id="menu">
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('about') }}">About</a></li>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('pub') }}">Publications</a></li>
-            </br>
-            </ul>
-        </nav>
-        </div>{% endblock %}
 
-
-
-
-<div class="push" style="height:10px;"></div>
-<div class="container-fluid">
+<!--div class="push" style="height:10px;"></div-->
+<div class="container-fluid back-gray">
 	<div class="row">
 		<div class="container">
 			<div class="row">
@@ -71,6 +54,9 @@
 					</div-->
 		</div>
 	</div>
+</div>
+<div class="container-fluid back-black">
+	<div class="row" style="height: 750px;"></div>
 </div>
 
  <!-- FOOTER -->

@@ -7,6 +7,11 @@ body {
     font-family: sans-serif;
     color: rgba(238, 238, 238, 0.9);
     height: 100%;
+    background: url(../img/haeckel_fade.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 html{
@@ -26,12 +31,12 @@ html{
 .background{
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(rgba(26,26,26,0.85),rgba(26,26,26,0.85)),url('https://mail.google.com/mail/u/0/?ui=2&ik=cb02479a36&view=fimg&th=15da493df4740e9b&attid=0.1&disp=emb&realattid=ii_15da493a0c1adaba&attbid=ANGjdJ8LgcUh3cQauvzfUc5s-hUclmhg932eK_Auz6hC2qNwGpfPMpxXCJqXzIkCq4QcNLveSFzvuHVCsQvKhqba3ysjdaMYBEW-P6ytCvsQtsjUBkQybP0csy_fsrk&sz=w766-h1088&ats=1501705556863&rm=15da493df4740e9b&zw&atsh=1');
+    /*background-image: linear-gradient(rgba(26,26,26,0.85),rgba(26,26,26,0.85)),url('https://mail.google.com/mail/u/0/?ui=2&ik=cb02479a36&view=fimg&th=15da493df4740e9b&attid=0.1&disp=emb&realattid=ii_15da493a0c1adaba&attbid=ANGjdJ8LgcUh3cQauvzfUc5s-hUclmhg932eK_Auz6hC2qNwGpfPMpxXCJqXzIkCq4QcNLveSFzvuHVCsQvKhqba3ysjdaMYBEW-P6ytCvsQtsjUBkQybP0csy_fsrk&sz=w766-h1088&ats=1501705556863&rm=15da493df4740e9b&zw&atsh=1');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
-    -webkit-background-size: cover;
+    -webkit-background-size: cover;*/
 }
 .container-fluid{
     background: rgba(255,255,255,0);
@@ -67,17 +72,17 @@ html{
 }
 
 .select2-container--default .select2-selection--single {
-     
+
     border-style: none;
     border-bottom: solid black;
 }
  .select2-container--default .select2-selection--single {
     border-radius:0px;
-    }   
+    }
 .select2-container #searchbar{
     height: 60px;
     overflow: scroll;
-} 
+}
 
 #searchbar{
     background-color: green;
@@ -452,7 +457,7 @@ table {
 }
 #model-table th, #model-table td{
     color:white;
-} 
+}
 #latlong th,#latlong td{
     padding-left: 5px;
     padding-right: 5px;
@@ -486,10 +491,10 @@ table {
 
 .footer {
     position: absolute;
-    /*bottom: 0;*/
+    bottom: 0;
     width: 100%;
     height: 200px;
-    background-color: #333; 
+    background-color: #333;
     /*background-color: rgba(177, 177, 177, 0.95);*/
 }
 

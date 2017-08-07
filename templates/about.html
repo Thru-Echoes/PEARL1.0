@@ -1,67 +1,59 @@
 {% extends "nav_layout.html" %}
 
 {% block body %}
-{% block menu %}
-    <div class="wrapper" style="height: 500%;">
-    <div class="background">
-        <div style="height:20px;"></div>
-        <div id="menu">
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('about') }}">About</a></li>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('pub') }}">Publications</a></li>
-            </br>
-            </ul>
-        </nav>
-        </div>{% endblock %}
-
-
-
-
-<div class="push" style="height:10px;"></div>
-
-<div class="about">
-	<h3>About PEARL </h3>
-	</br>
-		<p>The Parasite Extinction Assessment & Red List (release 1.0) is the first global assessment of the extinction risk and conservation triage of macroparasitic invertebrates. The study is the result of collaboration between 19 scientists in 8 countries, with a forthcoming study in Science Advances reporting the results of the underlying global analysis. PEARL is based on a dataset compiling the most expansive set of occurrence data for macroparasites currently openly available to researchers. </p>
-	</br>
-	<!--div class="row">
-		<div class="col-md-12">
-			<img src="{{ url_for('static', filename='img/wayne.jpg') }}">
+<!--div class="push" style="height:10px;"></div-->
+<div class="container-fluid back-gray">
+	<div class="row">
+		<div class="container">
+			<div class="row">
+				<div class="about">
+					<h3>About PEARL </h3>
+					</br>
+						<p>The Parasite Extinction Assessment & Red List (release 1.0) is the first global assessment of the extinction risk and conservation triage of macroparasitic invertebrates. The study is the result of collaboration between 19 scientists in 8 countries, with a forthcoming study in Science Advances reporting the results of the underlying global analysis. PEARL is based on a dataset compiling the most expansive set of occurrence data for macroparasites currently openly available to researchers. </p>
+					</br>
+					<!--div class="row">
+						<div class="col-md-12">
+							<img src="{{ url_for('static', filename='img/wayne.jpg') }}">
+						</div>
+					</div-->
+					<div id="team" name="team"></div>
+					<script type="text/javascript">
+						people = ['Dr. Veronica Bueno','Dr. Kevin Burgio','Colin Carlson','Giovanni Castaldo','Dr. Carrie Cizauskas','Dr. Christopher Clements','Dr. Graeme Cumming','Dr. Tad Dallas','Dr. Jorge Doña','Eric Dougherty','Sarah Fourby','Dr. Wayne Getz','Dr. Nyeema Harris','Dr. Roger Jovani','Zhongqi Miao','Dr. Sergei Mironov','Oliver Muellerklein','Dr. Anna J. Phillips','Dr. Heather Proctor','Hyun Seok Yoon'];
+						ppl_img = ['veronica','kevin','col','gio','carrie','chris','FAVORITE','TAD','FAVORITE','eric','FAVORITE','wayne','NYEEMA','roger','FAVORITE','FAVORITE','olives','anna','FAVORITE','FAVORITE'];
+						text = '<h2 style="margin-bottom:40px; text-align:center;"> PEARL Team </h2>' +
+							'<div class="team-cat" style="height: 100%;">';
+						k=0;
+						for(i=0;i<Math.floor(people.length/3);i++){
+							text += '<div class="row">'
+									for(j=0; j<3;j++){
+									text += '<div calss="col-md-4" style="margin:auto;">'+
+										'<img src="static/img/'+ppl_img[k]+'.jpg" class="img-circle" alt="Cinque Terre">'+
+										'<p class="team-member"><b>'+ people[k] +'</b></p>'+
+									'</div>';
+									k+=1;
+									}
+							text += '</div>';
+						}
+						text+= '<div class="row">'+
+							'<div calss="col-md-6" style="margin:auto;">'+
+								'<img src="static/img/'+ppl_img[k]+'.jpg" class="img-circle" alt="Cinque Terre">'+
+								'<p class="team-member"><b>'+ people[k] +'</b></p>'+
+							'</div>'+
+							'<div calss="col-md-6" style="margin:auto;">'+
+							'<img src="static/img/'+ppl_img[k+1]+'.jpg" class="img-circle" alt="Cinque Terre">'+
+							'<p class="team-member"><b>'+ people[k+1] +'</b></p>'+
+							'</div>'+
+						'</div>'
+						text +=	'</div></div>'
+						document.getElementById("team").innerHTML = text;
+					</script>
+				</div>
+			</div>
 		</div>
-	</div-->
-	<div id="team" name="team"></div>
-	<script type="text/javascript">
-		people = ['Dr. Veronica Bueno','Dr. Kevin Burgio','Colin Carlson','Giovanni Castaldo','Dr. Carrie Cizauskas','Dr. Christopher Clements','Dr. Graeme Cumming','Dr. Tad Dallas','Dr. Jorge Doña','Eric Dougherty','Sarah Fourby','Dr. Wayne Getz','Dr. Nyeema Harris','Dr. Roger Jovani','Zhongqi Miao','Dr. Sergei Mironov','Oliver Muellerklein','Dr. Anna J. Phillips','Dr. Heather Proctor','Hyun Seok Yoon'];
-		ppl_img = ['veronica','kevin','col','gio','carrie','chris','FAVORITE','TAD','FAVORITE','eric','FAVORITE','wayne','NYEEMA','roger','FAVORITE','FAVORITE','olives','anna','FAVORITE','FAVORITE'];
-		text = '<h2 style="margin-bottom:40px; text-align:center;"> PEARL Team </h2>' +
-			'<div class="team-cat" style="height: 100%;">';
-		k=0;
-		for(i=0;i<Math.floor(people.length/3);i++){
-			text += '<div class="row">'
-					for(j=0; j<3;j++){
-					text += '<div calss="col-md-4" style="margin:auto;">'+
-						'<img src="static/img/'+ppl_img[k]+'.jpg" class="img-circle" alt="Cinque Terre">'+
-						'<p class="team-member"><b>'+ people[k] +'</b></p>'+
-					'</div>';
-					k+=1;
-					}
-			text += '</div>';
-		}
-		text+= '<div class="row">'+
-			'<div calss="col-md-6" style="margin:auto;">'+
-				'<img src="static/img/'+ppl_img[k]+'.jpg" class="img-circle" alt="Cinque Terre">'+
-				'<p class="team-member"><b>'+ people[k] +'</b></p>'+
-			'</div>'+
-			'<div calss="col-md-6" style="margin:auto;">'+
-			'<img src="static/img/'+ppl_img[k+1]+'.jpg" class="img-circle" alt="Cinque Terre">'+
-			'<p class="team-member"><b>'+ people[k+1] +'</b></p>'+
-			'</div>'+
-		'</div>'
-		text +=	'</div></div>'
-		document.getElementById("team").innerHTML = text;
-	</script>
+	</div>
+</div>
+<div class="container-fluid back-black">
+	<div class="row" style="height: 200px;"></div>
 </div>
 
    <!-- FOOTER -->

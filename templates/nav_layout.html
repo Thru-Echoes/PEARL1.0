@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-    <title>EWAIM</title>
+    <title>P.E.A.R.L.</title>
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
     <script src="{{ url_for('static', filename='js/jquery-2.2.3.js') }}"></script>
@@ -14,14 +14,12 @@
     <script src="{{ url_for('static', filename='js/d3.js') }}"></script>
     <script src="{{ url_for('static', filename='js/select2.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/select2.min.css') }}" />
-    
+
     <!-- Math / LaTeX -->
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-    <!-- US States JSON -->
-    <script src="{{ url_for('static', filename='db/us_states.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
     <!-- Leaflet heatmap -->
     <script src="static/js/leaflet-heat.js"></script>
@@ -32,13 +30,29 @@
         }
         .ghbtns { position: relative; top: 4px; margin-left: 5px; }
     </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/custom-colors.css') }}" />
     {% endblock %}
 </head>
+{% block menu %}
+    <!--div class="wrapper" style="height:130%;">
+    <div class="background">
+        <div style="height:20px;"></div-->
+    <div id="menu">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('pub') }}">Publications</a></li>
+                </br>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
 <body>
     {% for message in get_flashed_messages() %}
       <div class=flash>{{ message }}</div>
     {% endfor %}
     {% block body %}{% endblock %}
-    
+
 </body>
 </html>

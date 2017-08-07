@@ -1,0 +1,20 @@
+/*********************************************
+* Background sections
+*********************************************/
+
+.back-gray {
+    background: rgba(238, 238, 238, 0.75);
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.back-black {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.home-font {
+    color: rgba(238, 238, 238, 0.75);
+}
+
+#menu {
+    background: rgba(238, 238, 238, 0.75);
+}

@@ -1,118 +1,114 @@
 {% extends "nav_layout.html" %}
 
 {% block body %}
-{% block menu %}
-    <div class="wrapper" style="height:130%;">
-    <div class="background">
-        <div style="height:20px;"></div>
-        <div id="menu">
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('about') }}">About</a></li>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('pub') }}">Publications</a></li>
-            </br>
-            </ul>
-        </nav>
-        </div>{% endblock %}
-
-<div class="contain-all">
-    <div id="push-before-map" style="height: 10px;"></div>
-    <div class="container-fluid" id="map-container">
-        <!--<div id="map-intro" style="width:100%;"></div>-->
-        <!--script src="./static/js/HeatLayer.js"></script>
-        <script src="./static/js/leaflet-heat.js"></script-->
-        <script src="./static/js/map-util.js"></script>
-        <script type="text/javascript">
-
-        </script>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 style="text-align: center; font-size: 700%; padding-top: 50px; padding-bottom: 40px;">PEARL</h1>
-                    <div class="container" align="center">
-                        <div class="row">
-                                <form role="form" method='POST' action='' style="margin: 0 auto; width:310px">
-                                    <div class="form-group" style="margin-bottom:0px">
-                                        <!--input type = "text" name = "query_string" class = "form-control" id = "query-box" placeholder = "Enter query" style = "max-width: 300px;" autofocus required-->
-                                        <fieldset class="form-group" style="margin-bottom:0px">
-                                            <div class="form-check" id = "form-check" style="margin-bottom:5px">
-                                            </div>
-                                        </fieldset>
-                                   </div>
-                                    <button type="submit" class="btn btn-default">Render Map</button>
-                                </form>
+<!--div class="contain-all"-->
+<div class="container-fluid back-gray">
+    <div class="row">
+        <div id="push-before-map" style="height: 10px;"></div>
+        <!--div class="container" id="map-container"-->
+            <!--<div id="map-intro" style="width:100%;"></div>-->
+            <!--script src="./static/js/HeatLayer.js"></script>
+            <script src="./static/js/leaflet-heat.js"></script-->
+            <!--script src="./static/js/map-util.js"></script>
+            <script type="text/javascript"></script>
+        </div-->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 style="text-align: center; font-size: 700%; padding-top: 50px; padding-bottom: 40px;">PEARL</h1>
+                        <div class="container" align="center">
+                            <div class="row">
+                                    <form role="form" method='POST' action='' style="margin: 0 auto; width:310px">
+                                        <div class="form-group" style="margin-bottom:0px">
+                                            <!--input type = "text" name = "query_string" class = "form-control" id = "query-box" placeholder = "Enter query" style = "max-width: 300px;" autofocus required-->
+                                            <fieldset class="form-group" style="margin-bottom:0px">
+                                                <div class="form-check" id = "form-check" style="margin-bottom:5px">
+                                                </div>
+                                            </fieldset>
+                                       </div>
+                                        <button type="submit" class="btn btn-default">Render Map</button>
+                                    </form>
+                            </div>
                         </div>
-                    </div>
-                </br>
-                <p id="intro" style="text-align:center;">
-                    <span style="font-size:20px;"> PEARL (Parasite Extinction Assessment and Red List) </span> <span style="font-size:15px;"> is the world's first parasite conservation database. The database holds species distribution data for over 450+ parasite species and their distribution projections under different future climate scenarios. Type in a species of interest to see the conservation assessment information of the species.</span> </p>
-                <br>
-                <div class="direct-buttons">
-                    <div class="row" style="margin: auto;">
-                        <div class="col-md-12" style="text-align:center;">
-                            <button class="Publication" onclick="window.location.href='about#team'" name="team">Team Publication</button>
-                        </div>
-                    </div>
+                    </br>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
-    <div class="container" id="search" style="text-align: center"></div>
+<div class="container-fluid back-gray">
+    <div class="row">
+        <div class="container" id="search" style="text-align: center"></div>
+            <!--div id="search" style="text-align:center"></div>
+            <script type="text/javascript">
+                Spname = ["Zygocotyle lunata","Boe","June","July"]; //put it into json from app.py ??
+                text = '<form role="form" method="POST" action="">' +
+                '<div class="form-group">' +
+                '<label for="searchbar">Search Bar:</label>' +
+                '<select id="searchbar" style="width:300px" name="searchbar">';
+                for(i = 0; i < Spname.length; i++){
+                    text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
+                }
+                text += '</select>' +
+                '<buttom type="submit" class="btn btn-default" id="hellyeah"> Render Map </bottom>' +
+                '</div>'
+                '</form>';
+                document.getElementById("search").innerHTML = text
+                $('select').select2({
+                    theme: 'bootstrap'
+                });
 
-    <!--div id="search" style="text-align:center"></div>
+            </script-->
+        <div id="push-index-bottom1" style="height: 40px"></div>
+    </div>
     <script type="text/javascript">
-        Spname = ["Zygocotyle lunata","Boe","June","July"]; //put it into json from app.py ??
-        text = '<form role="form" method="POST" action="">' +
-        '<div class="form-group">' +
-        '<label for="searchbar">Search Bar:</label>' +
-        '<select id="searchbar" style="width:300px" name="searchbar">';
-        for(i = 0; i < Spname.length; i++){
-            text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
-        }
-        text += '</select>' +
-        '<buttom type="submit" class="btn btn-default" id="hellyeah"> Render Map </bottom>' +
-        '</div>'
-        '</form>';
-        document.getElementById("search").innerHTML = text
-        $('select').select2({
-            theme: 'bootstrap'
-        });
-
-    </script-->
-
-
-
-    <div id="push-index-bottom1" style="height: 40px"></div>
-    
-</div>
-<script type="text/javascript">
         var Spname = {{ splist| safe }};
         /*text = '<label for="searchbar">Search Bar:</label>' +
         '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">';*/
         text = '<label for="searchbar"></label>' +
-        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">' + 
+        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">' +
         '<option value="foo_sp"><b><i>Choose a species of interest...</i></b></option>';
         for(i = 0; i < Spname.length; i++){
             text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
         }
         text += '</select>';
         text2= 'hey'
+
         document.getElementById("form-check").innerHTML = text
         $('select').select2({
         });
-</script>
-<script>
-    $(document).ready(function () {
-        $('.select2').on('change', function () {
-            $(this).valid();
+
+        $(document).ready(function () {
+            $('.select2').on('change', function () {
+                $(this).valid();
+            });
+            return false;
         });
-        return false;
-    });
-</script>
+    </script>
+</div>
+<div class="container-fluid back-black">
+    <div class="row" style="height: 100px;"></div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <p id="intro" style="text-align:center;"><span style="font-size:20px;"> PEARL (Parasite Extinction Assessment and Red List) </span><span style="font-size:15px;"> is the world's first parasite conservation database. The database holds species distribution data for over 450+ parasite species and their distribution projections under different future climate scenarios. Type in a species of interest to see the conservation assessment information of the species.</span></p>
+                    <br>
+                    <div class="direct-buttons">
+                        <div class="row" style="margin: auto;">
+                            <div class="col-md-12" style="text-align:center;">
+                                <button class="Publication" onclick="window.location.href='about#team'" name="team">Team Publication</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="height: 750px;"></div>
+</div>
 <!-- FOOTER -->
     {% block footer %}
     <footer class="footer">
