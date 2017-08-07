@@ -59,3 +59,36 @@ For the sake of this project submission we provide pre-made CSVs and database (*
 **NOTE:** follow instructions in **database_prep** and **raster_data_prep**
 
 **NOTE:** must install all database dependencies as described in *database_prep/README.md* for the non-example version of this app!
+
+## 3. ToDo
+
+#### 3.1 Publications Page
+
+Carousel:
+    science
+    consbio
+    RSOS
+
+#### 3.2 About Page
+
+Dr. Veronica Bueno
+Dr. Kevin Burgio
+Colin Carlson
+Giovanni Castaldo
+Dr. Carrie Cizauskas
+Dr. Christopher Clements
+Dr. Graeme Cumming
+Dr. Tad Dallas
+Dr. Jorge Doña
+Eric Dougherty
+Sarah Fourby
+Dr. Wayne Getz
+Dr. Nyeema Harris
+Dr. Roger Jovani
+Zhongqi MIao
+Dr. Sergei Mironov
+Oliver Muellerklein
+Dr. Anna J. Phillips
+Dr. Heather Proctor
+Hyun Seok Yoon
+(Zach Poulin)

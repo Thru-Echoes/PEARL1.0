@@ -31,7 +31,7 @@
     }
 </style>
 <div class="container" style="height: 30px;"></div>
-<div class="whitebackground" style="margin: 0px 20px 0px 20px; border-radius:30px; color:rgba(10,10,10,0.9);">
+<div class="whitebackground" style="/*margin: 0px 20px 0px 20px; border-radius:30px;*/ color:rgba(10,10,10,0.9);">
     <div class="container" style="height: 20px;"></div>
     <div class="container">
     <script>
@@ -114,7 +114,7 @@
 <div id="push-before-map" style="height: 20px;"></div>
 <div class="container-fluid" id="map-container" style="width: 92.5%; margin: 0 auto;">
     <h2> Distribution Map </h2>
-    <div id="map-id" style="width:100%; height: 700px;"></div>
+    <div id="map-id" style="width:100%; height: 800px;"></div>
     <!--script src="./static/js/HeatLayer.js"></script>
     <script src="./static/js/leaflet-heat.js"></script-->
     <script src="./static/js/map-util.js"></script>
@@ -206,25 +206,25 @@
 
         /*var tile_current_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";*/
 
-        var tile_current_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";
-        var tile_ac45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac45/{z}/{x}/{y}.png";
-        var tile_ac85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac85/{z}/{x}/{y}.png";
-        var tile_bc26_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc26/{z}/{x}/{y}.png";
-        var tile_bc45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc45/{z}/{x}/{y}.png";
-        var tile_bc60_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc60/{z}/{x}/{y}.png";
-        var tile_bc85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc85/{z}/{x}/{y}.png";
-        var tile_cc26_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc26/{z}/{x}/{y}.png";
-        var tile_cc45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc45/{z}/{x}/{y}.png";
-        var tile_cc60_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc60/{z}/{x}/{y}.png";
-        var tile_cc85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc85/{z}/{x}/{y}.png";
-        var tile_hd26_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd26/{z}/{x}/{y}.png";
-        var tile_hd45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd45/{z}/{x}/{y}.png";
-        var tile_hd60_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd60/{z}/{x}/{y}.png";
-        var tile_hd85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd85/{z}/{x}/{y}.png";
-        var tile_he26_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe26/{z}/{x}/{y}.png";
-        var tile_he45_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe45/{z}/{x}/{y}.png";
-        var tile_he60_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe60/{z}/{x}/{y}.png";
-        var tile_he85_path = "./static/data/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe85/{z}/{x}/{y}.png";
+        var tile_current_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/current/{z}/{x}/{y}.png";
+        var tile_ac45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac45/{z}/{x}/{y}.png";
+        var tile_ac85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futureac85/{z}/{x}/{y}.png";
+        var tile_bc26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc26/{z}/{x}/{y}.png";
+        var tile_bc45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc45/{z}/{x}/{y}.png";
+        var tile_bc60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc60/{z}/{x}/{y}.png";
+        var tile_bc85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurebc85/{z}/{x}/{y}.png";
+        var tile_cc26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc26/{z}/{x}/{y}.png";
+        var tile_cc45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc45/{z}/{x}/{y}.png";
+        var tile_cc60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc60/{z}/{x}/{y}.png";
+        var tile_cc85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurecc85/{z}/{x}/{y}.png";
+        var tile_hd26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd26/{z}/{x}/{y}.png";
+        var tile_hd45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd45/{z}/{x}/{y}.png";
+        var tile_hd60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd60/{z}/{x}/{y}.png";
+        var tile_hd85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehd85/{z}/{x}/{y}.png";
+        var tile_he26_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe26/{z}/{x}/{y}.png";
+        var tile_he45_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe45/{z}/{x}/{y}.png";
+        var tile_he60_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe60/{z}/{x}/{y}.png";
+        var tile_he85_path = "./static/pearl-tiles/" + "{{ obj_show['pearl_sp'] }}" + "/futurehe85/{z}/{x}/{y}.png";
 
         // Overlay layers (TMS)
         var tile_current = L.tileLayer(tile_current_path, {tms: true, opacity: 0.8, attribution: ""});
@@ -516,8 +516,8 @@
         </div>
     </div>
 </div-->
-
-<div id="push-index-bottom" style="height: 100px;"></div>
+</div>
+<!--div id="push-index-bottom" style="height: 100px;"></div-->
 <!-- FOOTER -->
     {% block footer %}
     <footer class="footer">
@@ -553,7 +553,7 @@
             <div class="push" style="height:10px;">
         </div>
     </footer>
-    </div>
+    
     </div>
     {% endblock %}
 {% endblock %}
