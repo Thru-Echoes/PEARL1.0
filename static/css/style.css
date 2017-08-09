@@ -210,13 +210,20 @@ html{
     color: rgba(10,10,10,0.9);
 }
 .Stat td{
-    font-size: 80%;
+    font-size: 200%;
 }
 .Stat0 th, .Stat0 td{
     text-align:center;
     padding: 0 0 0 0;
     color:rgba(10,10,10,0.9);
 }
+
+#iucn-list {
+    text-align:center;
+    padding: 8px 16px 8px 16px;
+    /*font-weight: 100;*/
+}
+
 /*********************************************
 * Leaflet map
 *********************************************/

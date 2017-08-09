@@ -44,11 +44,12 @@
                 <div class="col-md-3">
                     <div class="row">
                         <div class="cstatus-box" data-toggle="tooltip" data-placement="bottom" data-original-title="IUCN categories used in our assessment are least concern (LC), vulnerable (VU), endangered (EN), and critically endangered (CR).">
-                            <h1>{{ obj_show['iucn'] }}</h1>
+                            <!--h1 style="text-align: center;">{{ obj_show['iucn'] }}</h1-->
+                            <h1 id="iucn-list">{{ obj_show['iucn'] }}</h1>
                         </div>
                     </div>
                     <div class="row">
-                        <h4>Suggested IUCN Red Listing</h4>
+                        <h4 style="text-align: center;">Suggested IUCN Red Listing</h4>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
@@ -126,9 +127,9 @@
                     native_li.html(native_string);
                     global_li.html(global_string);
 
-                    var model_string = model_array[1];
-                    var native_string = model_data[3]["tss"];
-                    var global_string = model_data[3]["roc"];
+                    model_string = model_array[1];
+                    native_string = model_data[3]["tss"];
+                    global_string = model_data[3]["roc"];
                     model_li = $("#Model2");
                     native_li = $("#native_habitat_change2");
                     global_li = $("#global_habitat_change2");
@@ -136,9 +137,9 @@
                     native_li.html(native_string);
                     global_li.html(global_string);
 
-                    var model_string = model_array[2];
-                    var native_string = model_data[4]["tss"];
-                    var global_string = model_data[4]["roc"];
+                    model_string = model_array[2];
+                    native_string = model_data[4]["tss"];
+                    global_string = model_data[4]["roc"];
                     model_li = $("#Model3");
                     native_li = $("#native_habitat_change3");
                     global_li = $("#global_habitat_change3");
@@ -248,7 +249,7 @@
                     zoom: init_zoom,
                     minZoom: 3,
                     maxZoom: 6,
-                    layers: [cartodb_base]
+                    layers: [cartodb_base, tile_current]
                 });
 
                 /***************************************
@@ -311,7 +312,7 @@
                     return this._div;
                 };
                 loc_info.loc_update = function(props) {
-                    this._div.innerHTML = '<div class="row">' +
+                    /*this._div.innerHTML = '<div class="row">' +
                         '<div class="col-md-12">' +
                         '<table id="latlong">' +
                         '<tr>' +
@@ -322,7 +323,24 @@
                         '<td id="curr_lat"></td>' +
                         '<td id="curr_long"></td>' +
                         '</tr>' +
-                        '</table>';
+                        '</table>';*/
+                    this._div.innerHTML = '<div class="row">' +
+                        '<div class="col-md-6">' +
+                        '<p>Lat.</p><br>' +
+                        '<p id="curr_lat"></p></div>' +
+                        '<div class="col-md-6">' +
+                        '<p>Lat.</p><br>' +
+                        '<p id="curr_long"></p></div></div>';
+                        /*'<table id="latlong">' +
+                        '<tr>' +
+                        '<th><b>Lat.</b></th>' +
+                        '<th><b>Long.</b></th>' +
+                        '</tr>' +
+                        '<tr>' +
+                        '<td id="curr_lat"></td>' +
+                        '<td id="curr_long"></td>' +
+                        '</tr>' +
+                        '</table>';*/
                 };
                 loc_info.addTo(map);
 
@@ -479,69 +497,4 @@
         $('select').select2({
         });
 </script>
-
-<!--div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1 style="text-align: center;">Current Species: <i>{{ obj_show['prop_name'] }}</i></h1>
-            <div class="container" style="padding: 10px; ">
-                <table id="csv-table" data-toggle="true" data-show-columns="true" data-pagination="true" data-height="500">
-                    <thead>
-                        <tr class="click-row" data-href="/">
-                            <th data-field="id" data-sortable="true">Species ID</th>
-                            <th data-field="science_name" data-sortable="true">Scientific Name</th>
-                            <th data-field="clade" data-sortable="true">Clade</th>
-                            <th data-field="iucn" data-sortable="true">IUCN</th>
-                            <th data-field="coverage" data-sortable="true">Data Collection Quality</th>
-                            <th data-field="uncertain" data-sortable="true">Model Quality</th>
-                            <th data-field="sources" data-sortable="true">Data Sources</th>
-                            <th data-field="tss" data-sortable="true">True Skill Statistic</th>
-                            <th data-field="roc" data-sortable="true">Area Under Curve</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
-</div-->
-</div>
-<!--div id="push-index-bottom" style="height: 100px;"></div-->
-<!-- FOOTER -->
-    {% block footer %}
-    <footer class="footer">
-        <div class="container">
-            </br>
-            <p class="footer-text" style="text-align:center;">This website is a collaborative work of Zhongqi Miao, Oliver Muellerklein, Colin Carlson and Honeysuckle Yoon from <a href="https://nature.berkeley.edu/getzlab/">Getz Lab</a>. All rights reserved | Lab Location:VLSB 5048-B </p>
-            <div class="row">
-                <div class="col-md-2">
-                    <a href="http://www.berkeley.edu/">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/California_Golden_Bears_logo.svg/2000px-California_Golden_Bears_logo.svg.png" alt="UCBerkeley" width="50" height="50">
-                    </a>
-                </div>
-                <div class="col-md-2">
-                    <a href="https://ourenvironment.berkeley.edu/">
-                    <img src="http://microtsudentgroup.weebly.com/uploads/1/0/9/2/10929232/espm-logo.png" alt="ESPM" width="50" height="50">
-                    </a>
-                </div>
-                <div class="col-md-2" style="margin-right:120px;">
-                    <a href="https://nature.berkeley.edu/">
-                    <img src="https://nature.berkeley.edu/sites/all/themes/cnr/cnr_logo_blue_640.png" alt="NTRES" width="200" height="50">
-                </div>
-                <div class="col-md-2">
-                    <a href="https://naturalhistory.si.edu/">
-                    <img src="https://asiloidflies.si.edu/sites/all/themes/nmnh_asiloid_flies_omega/images/si_logo_small_new.png" alt="Smithsonian" width="50" height="50">
-                    </a>
-                </div>
-                <div class="col-md-2">
-                    <a href="">
-                    <img src="" alt="S.C.design and Analytics" width="50" height="50">
-                    </a>
-                </div>
-            </div>
-            <div class="push" style="height:10px;">
-        </div>
-    </footer>
-
-    </div>
-    {% endblock %}
-{% endblock %}
+{% endblock body %}

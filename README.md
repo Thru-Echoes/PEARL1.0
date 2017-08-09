@@ -60,16 +60,29 @@ For the sake of this project submission we provide pre-made CSVs and database (*
 
 **NOTE:** must install all database dependencies as described in *database_prep/README.md* for the non-example version of this app!
 
-## 3. ToDo
+## 3. ToDo x Misc
 
-#### 3.1 Publications Page
+- [ ] Migrate to pearl.berkeley.edu or ask Gary to point to new IP + port
+- [ ] Footer: Change order of names
+- [ ] Footer: Add "Version 1.0 (% date %)"
 
-Carousel:
+#### 3.1 Map Page
+
+- [X] Toggle Current map by default
+- [ ] Fix location of CSVs for TSS and AUC / ROC
+
+#### 3.2 Publications Page
+
+- [ ] Add Carousel:
     science
     consbio
     RSOS
 
-#### 3.2 About Page
+- [ ] Make publications in chronological order
+- [ ] Add full citations to publications
+- [ ] Add PDF links (basic link to app PDFs) for publications
+
+#### 3.3 About Page
 
 Dr. Veronica Bueno
 Dr. Kevin Burgio
