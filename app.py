@@ -10,9 +10,6 @@ import json
 import re
 ## import psycopg2 as psy
 from functools import wraps
-## from ewaim import calculate
-## from ewaim import get_csv
-## from ewaim import mean_lat_long
 from ewaim import *
 ## from static.py.db_util import *
 
@@ -116,7 +113,7 @@ def index():
                 spfilename = req_raw.upper().replace(' ','_')
                 pathName = "./static/csv/pearl_sp/" + spfilename + "_pearldata.csv"
                 obj_sp = get_csv(csv_path = pathName)
-                print('it was successful')
+
                 return render_template("pearl_map.html", obj_show = obj_show, obj_sp = obj_sp, splist = splist)
 
             except:

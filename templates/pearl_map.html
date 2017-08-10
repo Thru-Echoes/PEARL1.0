@@ -61,12 +61,14 @@
                         <tr>
                         <th id="tss0">
                             <div class="cstatus-box" data-toggle="tooltip" data-placement="top" data-original-title="The Hanssen-Kuiper Skill statistic or true skill statistic ranges from -1 to +1, where 0 represents no skill, and is (sensitivity + specificity - 1).">
-                                <h2>{{ obj_show['tss'] }}</h2>
+                                <!--h2>{{ obj_sp[0]['tss'] }}</h2-->
+                                <h2 id="tss_value">0.0</h2>
                             </div>
                         </th>
                         <th id="roc0">
                             <div class="cstatus-box" data-toggle="tooltip" data-placement="top" data-original-title="The AUC is the area under the receiver-operating characteristic curve which compares correct and false positive rates with different cutoffs, and ranges from 0 to 1.">
-                                <h2>{{ obj_show['auc'] }}</h2>
+                                <!--h2>{{ obj_sp[0]['roc'] }}</h2-->
+                                <h2 id="roc_value">0.0</h2>
                             </div>
                         </th>
                         <th>
@@ -106,16 +108,20 @@
             <script src="./static/js/map-util.js"></script>
             <script type="text/javascript">
                 $(window).load(function() {
-                    /*var tss_value = model_data[0]["tss"]
-                    var roc_value = model_data[0]["roc"]
-                    var tss = $("#tss");
-                    var roc = $("#roc");
-                    tss.html(tss_value;
-                    roc.html(roc_value);*/
-
                     var model_array = ['ac45','ac85','bc26','bc45','bc60','bc85','cc26','cc45','cc60','cc85','hd26','hd45','hd60','hd85','he26','he45','he60','he80']
 
                     var model_data = {{ obj_sp|tojson }};
+
+                    /* Set up TSS and AUC / ROC */
+                    var tss_val = model_data[0]["tss"];
+                    var roc_val = model_data[0]["roc"];
+                    var tss = $("#tss_value");
+                    var roc = $("#roc_value");
+
+                    tss.html(Number(tss_val).toPrecision(2));
+                    roc.html(Number(roc_val).toPrecision(2));
+
+                    /* Set up climate model scenarios */
 
                     var model_string = model_array[0];
                     var native_string = model_data[2]["tss"];
@@ -312,7 +318,7 @@
                     return this._div;
                 };
                 loc_info.loc_update = function(props) {
-                    /*this._div.innerHTML = '<div class="row">' +
+                    this._div.innerHTML = '<div class="row">' +
                         '<div class="col-md-12">' +
                         '<table id="latlong">' +
                         '<tr>' +
@@ -323,14 +329,14 @@
                         '<td id="curr_lat"></td>' +
                         '<td id="curr_long"></td>' +
                         '</tr>' +
-                        '</table>';*/
-                    this._div.innerHTML = '<div class="row">' +
+                        '</table>';
+                    /*this._div.innerHTML = '<div class="row">' +
                         '<div class="col-md-6">' +
                         '<p>Lat.</p><br>' +
                         '<p id="curr_lat"></p></div>' +
                         '<div class="col-md-6">' +
                         '<p>Lat.</p><br>' +
-                        '<p id="curr_long"></p></div></div>';
+                        '<p id="curr_long"></p></div></div>';*/
                         /*'<table id="latlong">' +
                         '<tr>' +
                         '<th><b>Lat.</b></th>' +
