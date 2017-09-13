@@ -106,7 +106,7 @@
                 </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4" style="text-align: right;">
-                    <button type="button" class="btn btn-info dl-grd-btn" style="color: white;">Download Data (<b>.grd</b>)</button>
+                    <a href="#" onclick="download_grd()" role="button" class="btn btn-info dl-grd-btn" style="color: white;">Download Data (<b>.grd</b>)</a>
                 </div>
             </div>
             <div style="height: 50px;"></div>
@@ -510,5 +510,12 @@
         document.getElementById("form-check").innerHTML = text
         $('select').select2({
         });
+
+
+        /* Download the .grd files for this species from PEARL-API */
+        function download_grd() {
+            console.log("\nSend it\n");
+            return false;
+        }
 </script>
 {% endblock body %}
