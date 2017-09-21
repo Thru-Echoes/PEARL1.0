@@ -106,9 +106,17 @@
                 </div>
                 <div class="col-md-4"></div>
                 <div class="col-md-4" style="text-align: right;">
-                    <a href="#" onclick="download_grd()" role="button" class="btn btn-info dl-grd-btn" style="color: white;">Download Data (<b>.grd</b>)</a>
+                    <!--h4>Downloading may take a few minutes</h4-->
+		    <!--a href="#" onclick="download_grd()" role="button" class="btn btn-info dl-grd-btn" style="color: white;">Download Data (<b>.grd</b>)</a-->
+                    <!--a href="#" onclick="init_download_grd()" role="button" class="btn btn-info dl-grd-btn" style="color: white;">Download Data (<b>.grd</b>)</a-->
+                    <a href="#" onclick="fire_grd_dl()" role="button" class="btn btn-info dl-grd-btn" style="color: white;">Download Data (<b>.grd</b>)</a>
                 </div>
             </div>
+	    <div class="row">
+	    	<div class="col-md-4"></div>
+		<div class="col-md-4"></div>
+		<div class="col-md-4" style="text-align: right;"></br><h5>Downloading may take a few minutes</h5></div>
+	    </div>
             <div style="height: 50px;"></div>
             <div id="map-id" style="width:100%; height: 800px;"></div>
             <!--script src="./static/js/HeatLayer.js"></script>
@@ -498,24 +506,199 @@
     <div class="row" style="height: 400px;"></div>
 </div>
 <script type="text/javascript">
-        Spname = {{ splist | safe }};
-        /*text = '<label for="searchbar">Search Bar:</label>' +
-        '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">';*/
-        text = '<label for="searchbar"></label>' +
-        '<select id="searchbar" style="width:400px" name="searchbar" class="form-control required"><option value="foo_sp"><b><i>Choose a different species of interest...</i></b></option>';
-        for(i = 0; i < Spname.length; i++){
-            text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
-        }
-        text += '</select>';
-        document.getElementById("form-check").innerHTML = text
-        $('select').select2({
-        });
+    Spname = {{ splist | safe }};
+    /*text = '<label for="searchbar">Search Bar:</label>' +
+    '<select id="searchbar" style="width:300px" name="searchbar" class="form-control required">';*/
+    text = '<label for="searchbar"></label>' +
+    '<select id="searchbar" style="width:400px" name="searchbar" class="form-control required"><option value="foo_sp"><b><i>Choose a different species of interest...</i></b></option>';
+    for(i = 0; i < Spname.length; i++){
+        text += '<option value="' + Spname[i] + '"><i>' +  Spname[i] + '</i></option>';
+    }
+    text += '</select>';
+    document.getElementById("form-check").innerHTML = text
+    $('select').select2({
+    });
 
+    var fire_grd_dl = function() { return false; };
+
+    $(window).load(function() {
 
         /* Download the .grd files for this species from PEARL-API */
-        function download_grd() {
-            console.log("\nSend it\n");
+        fire_grd_dl = function init_download_grd() {
+		
+
+	    alert("Downloading zip - this may take a few minutes");
+
+            var str = "{{ obj_show['pearl_sp'] }}";
+            var upper = str.toUpperCase();
+            var modstr = upper.replace("_", " ");
+
+            var zip = new JSZip();
+            var zip1 = new JSZip();
+            var zip2 = new JSZip();
+            var zip3 = new JSZip();
+            var zip4 = new JSZip();
+            var count = 0;
+            var zipFilename = "{{ obj_show['pearl_sp'] }}" + ".zip";
+            var zipFilename1 = "{{ obj_show['pearl_sp'] }}" + "_1.zip";
+            var zipFilename2 = "{{ obj_show['pearl_sp'] }}" + "_2.zip";
+            var zipFilename3 = "{{ obj_show['pearl_sp'] }}" + "_3.zip";
+            var zipFilename4 = "{{ obj_show['pearl_sp'] }}" + "_4.zip";
+
+            var urls = [
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " current.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " current.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futureac45.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futureac45.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futureac85.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futureac85.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurebc26.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurebc26.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurebc45.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurebc45.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurebc60.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurebc60.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurebc85.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurebc85.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurecc26.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurecc26.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurecc45.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurecc45.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurecc60.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurecc60.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurecc85.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurecc85.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehd26.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehd26.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehd45.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehd45.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehd60.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehd60.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehd85.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehd85.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehe26.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehe26.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehe45.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehe45.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehe60.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehe60.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehe85.grd",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " futurehe85.gri",
+                "./static/grd/" + "{{ obj_show['pearl_sp'] }}" + "/" + modstr + " pearldata.csv",
+            ];
+
+            urls.forEach(function(url) {
+                JSZipUtils.getBinaryContent(url, function(err, data) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    zip.file(url, data, {binary:true});
+                    count++;
+                    if (count == urls.length) {
+
+                        //debugger;
+
+                        zip.generateAsync({type: 'blob'}).then(function(content) {
+                            saveAs(content, zipFilename);
+                        });
+
+                        /*zip.generateNodeStream({streamFiles: true})
+                            .pipe(fs.createWriteStream(zipFilename))
+                            .on('finish', function () {
+                                console.log("out.zip has been written...");
+                            });*/
+                    }
+                });
+            });
+
+            /*urls2.forEach(function(url) {
+                JSZipUtils.getBinaryContent(url, function(err, data) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    zip.file(url, data, {binary:true});
+                    count++;
+                    if (count == urls.length) {
+                        zip.generateAsync({type: 'blob'}).then(function(content) {
+                            saveAs(content, zipFilename2);
+                        });
+                    }
+                });
+            });
+
+            urls3.forEach(function(url) {
+                JSZipUtils.getBinaryContent(url, function(err, data) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    zip.file(url, data, {binary:true});
+                    count++;
+                    if (count == urls.length) {
+
+                        zip.generateAsync({type: 'blob'}).then(function(content) {
+                            saveAs(content, zipFilename3);
+                        });
+                    }
+                });
+            });
+
+            urls4.forEach(function(url) {
+                JSZipUtils.getBinaryContent(url, function(err, data) {
+                    if (err) {
+                        throw err;
+                    }
+
+                    zip.file(url, data, {binary:true});
+                    count++;
+                    if (count == urls.length) {
+
+                        zip.generateAsync({type: 'blob'}).then(function(content) {
+                            saveAs(content, zipFilename4);
+                        });
+                    }
+                });
+            });*/
+
             return false;
         }
+
+        function download_files(files) {
+            function download_next(i) {
+                if (i >= files.length) {
+                    return;
+                }
+                var a = document.createElement('a');
+                a.href = files[i].download;
+                a.target = '_parent';
+
+                // Use a.download if available, it prevents plugins from opening.
+                if ('download' in a) {
+                    a.download = files[i].filename;
+                }
+                // Add a to the doc for click to work.
+                (document.body || document.documentElement).appendChild(a);
+                if (a.click) {
+                    a.click(); // The click method is supported by most browsers.
+                } else {
+                    $(a).click(); // Backup using jquery
+                }
+
+                // Delete the temporary link.
+                a.parentNode.removeChild(a);
+                // Download the next file with a small timeout. The timeout is necessary
+                // for IE, which will otherwise only download the first file.
+                setTimeout(function() {
+                    download_next(i + 1);
+                }, 500);
+            }
+
+            // Initiate the first download.
+            download_next(0);
+        }
+    });
+
 </script>
 {% endblock body %}
