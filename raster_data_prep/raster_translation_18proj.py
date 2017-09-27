@@ -97,7 +97,7 @@ for i in range(0, len(color)):
     color_file_create(color_dir, color[i], i+1)
 
 print('Creating GeoTIFF from R raster...')
-
+errorfiles = []
 for folder in os.listdir(wd + '/pearl_data_18futures/origin/'):
     if not folder.startswith('.') and not folder.endswith('.csv'):
 
@@ -109,7 +109,12 @@ for folder in os.listdir(wd + '/pearl_data_18futures/origin/'):
 
         for file in os.listdir(in_dir):
             if not file.startswith('.') and not file.endswith('.csv') and not file.endswith('.gri'):
-                tif_translate(in_dir, out_dir, file)
+                try:
+                    tif_translate(in_dir, out_dir, file)
+                except:
+                    print 'THERE WAS AN ERROR AND THE FILE NAME IS'
+                    print file
+                    errorfiles.append(file)
 
 file_list = []
 
@@ -141,5 +146,14 @@ split_filenames = split_seq(file_list, numprocessors)
 p = Pool(numprocessors)
 result = p.map(raster_out, split_filenames)
 
+if len(errorfiles)>0:
+    print('THERE WERE SOME ERRORS IN MAKING TILE MAPS')
+    print('following were not translated')
+    print(errorfiles)
+    handle = open('errorfiles.txt'',w)
+    for item in errorfiles
+    handle.write(item+'\n')
+    handle.close()
+    
 print('Finished!!')
 print('+++++++++++')
