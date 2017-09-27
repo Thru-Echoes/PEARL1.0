@@ -8,17 +8,21 @@ Mapping global projections of current and future distributions of 450+ species o
 
 # Installation on Redhat Linux
 
-Need to install Python3 on Redhat.
+If needed, install local version of Python3:
 
 ```bash
     cd Python-3.X.X
     mkdir ~/.localpython
-    ./configure --prefix=/home/omuellerklein/.localpython
-    make
-    make altinstall     ## or make install
-    /home/omuellerklein/.localpython/bin/python3
-    /home/omuellerklein/.localpython/bin/pip3 install --upgrade pip
-    /home/omuellerklein/.localpython/bin/pip3 install flask flask_bootstrap
+    ./configure --prefix=/home/USERNAME/.localpython
+    make altinstall
+    /home/USERNAME/.localpython/bin/python3
+```
+
+Dependencies of web app:
+
+```bash
+    pip3 install --upgrade pip
+    pip3 install flask flask_bootstrap
 ```
 
 ## 1. EWAIM: an Extensible Web App for Interactive Mapping
@@ -51,57 +55,14 @@ EWAIM (the webapp as well as the package) will be extended for direct research a
 
 #### 2.2 Data Preparation
 
-- See `database_prep` folder for database setup.
+- See `grd` folder for a single species *.grd* files (current raster and 18 future scenarios)
+
 - See `raster_data_prep` folder for raster data preparation.
 
-For the sake of this project submission we provide pre-made CSVs and database (*database_prep/temperature.gz*) for the data instead. This is because installing packages / modules **GDAL** can likely cause system-based errors. Normally we will use proper database connections (as our utility functions show) for connections to the data for layers and analysis.
+Follow instructions in **raster_data_prep** for creating tile map data structure from *.grd* data of species.
 
-**NOTE:** follow instructions in **database_prep** and **raster_data_prep**
-
-**NOTE:** must install all database dependencies as described in *database_prep/README.md* for the non-example version of this app!
+**NOTE:** running the tile map creation code in **raster_data_prep** will likely take a very long time (*e.g. many days*) and generate ~130gb of tile map data from the 455 species + grid files.
 
 ## 3. ToDo x Misc
 
-- [ ] Migrate to pearl.berkeley.edu or ask Gary to point to new IP + port
-- [ ] Footer: Change order of names
-- [ ] Footer: Add "Version 1.0 (% date %)"
-
-#### 3.1 Map Page
-
-- [X] Toggle Current map by default
-- [ ] Fix location of CSVs for TSS and AUC / ROC
-
-#### 3.2 Publications Page
-
-- [ ] Add Carousel:
-    science
-    consbio
-    RSOS
-
-- [ ] Make publications in chronological order
-- [ ] Add full citations to publications
-- [ ] Add PDF links (basic link to app PDFs) for publications
-
-#### 3.3 About Page
-
-Dr. Veronica Bueno
-Dr. Kevin Burgio
-Colin Carlson
-Giovanni Castaldo
-Dr. Carrie Cizauskas
-Dr. Christopher Clements
-Dr. Graeme Cumming
-Dr. Tad Dallas
-Dr. Jorge Doña
-Eric Dougherty
-Sarah Fourby
-Dr. Wayne Getz
-Dr. Nyeema Harris
-Dr. Roger Jovani
-Zhongqi MIao
-Dr. Sergei Mironov
-Oliver Muellerklein
-Dr. Anna J. Phillips
-Dr. Heather Proctor
-Hyun Seok Yoon
-(Zach Poulin)
+Future development will include allow users to upload new presence or climate data and automating the building of models based on new input.
